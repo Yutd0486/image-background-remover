@@ -1,0 +1,30 @@
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+import './globals.css'
+
+const inter = Inter({ subsets: ['latin'] })
+
+export const metadata: Metadata = {
+  title: 'BG Remover — Remove Image Background Instantly',
+  description: 'Remove image backgrounds in seconds. Free, fast, and powered by AI.',
+  keywords: ['background remover', 'remove background', 'image editing', 'transparent background'],
+  openGraph: {
+    title: 'BG Remover — Remove Image Background Instantly',
+    description: 'Remove image backgrounds in seconds. Free, fast, and powered by AI.',
+    type: 'website',
+  },
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="en" className={inter.className}>
+      <body className="min-h-screen bg-gray-50 text-gray-900 antialiased">
+        {children}
+      </body>
+    </html>
+  )
+}
