@@ -2,7 +2,41 @@ import { NextRequest, NextResponse } from 'next/server'
 
 export const runtime = 'edge'
 
+// Simple in-memory rate limiter (resets every minute)
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>()
+const RATE_LIMIT = 10 // requests per minute per IP
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now()
+  const minute = 60 * 1000
+  const record = rateLimitMap.get(ip)
+
+  if (!record || now > record.resetTime) {
+    rateLimitMap.set(ip, { count: 1, resetTime: now + minute })
+    return true
+  }
+
+  if (record.count >= RATE_LIMIT) {
+    return false
+  }
+
+  record.count++
+  return true
+}
+
 export async function POST(request: NextRequest) {
+  // Rate limiting check
+  const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() 
+    || request.headers.get('x-real-ip') 
+    || 'unknown'
+  
+  if (!checkRateLimit(ip)) {
+    return NextResponse.json(
+      { error: 'Too many requests. Please try again later.', code: 'RATE_LIMITED' },
+      { status: 429 }
+    )
+  }
+
   try {
     const apiKey = process.env.REMOVEBG_API_KEY
     if (!apiKey) {
@@ -19,6 +53,27 @@ export async function POST(request: NextRequest) {
     if (!imageFile || !(imageFile instanceof Blob)) {
       return NextResponse.json(
         { error: 'No image file provided', code: 'MISSING_FILE' },
+        { status: 400 }
+      )
+    }
+
+    // Validate MIME type
+    const allowedMimeTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif']
+    if (!allowedMimeTypes.includes(imageFile.type)) {
+      return NextResponse.json(
+        { error: 'Invalid file type. Only JPEG, PNG, WebP, and GIF are allowed.', code: 'INVALID_MIME_TYPE' },
+        { status: 400 }
+      )
+    }
+
+    // Validate file extension (for safety)
+    const file = imageFile as File
+    const fileName = file.name?.toLowerCase() || ''
+    const allowedExtensions = ['.jpg', '.jpeg', '.png', '.webp', '.gif']
+    const hasValidExtension = allowedExtensions.some(ext => fileName.endsWith(ext))
+    if (fileName && !hasValidExtension) {
+      return NextResponse.json(
+        { error: 'Invalid file extension. Only .jpg, .jpeg, .png, .webp, and .gif are allowed.', code: 'INVALID_EXTENSION' },
         { status: 400 }
       )
     }
