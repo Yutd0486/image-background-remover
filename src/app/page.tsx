@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, useCallback } from 'react'
-import { useAuth } from '@clerk/nextjs'
+import { useState, useCallback, useEffect } from 'react'
+import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import Header from '@/components/Header'
 import UploadZone from '@/components/UploadZone'
@@ -19,91 +19,57 @@ export interface ImageState {
 }
 
 export default function Home() {
-  const { isLoaded, userId } = useAuth()
+  const { data: session, status } = useSession()
   const router = useRouter()
   const [imageState, setImageState] = useState<ImageState>({
-    originalFile: null,
-    originalUrl: null,
-    resultUrl: null,
-    resultBlob: null,
+    originalFile: null, originalUrl: null, resultUrl: null, resultBlob: null,
   })
   const [processingState, setProcessingState] = useState<ProcessingState>('idle')
-  const [errorMessage, setErrorMessage] = useState<string>('')
-  const [bgColor, setBgColor] = useState<string>('transparent')
+  const [errorMessage, setErrorMessage] = useState('')
+  const [bgColor, setBgColor] = useState('transparent')
 
-  // Redirect to login if not authenticated
-  if (isLoaded && !userId) {
-    router.push('/login')
-  }
+  useEffect(() => {
+    if (status === 'unauthenticated') router.push('/login')
+  }, [status, router])
 
   const handleFileSelect = useCallback((file: File) => {
     if (imageState.originalUrl) URL.revokeObjectURL(imageState.originalUrl)
     if (imageState.resultUrl) URL.revokeObjectURL(imageState.resultUrl)
-
-    const url = URL.createObjectURL(file)
-    setImageState({
-      originalFile: file,
-      originalUrl: url,
-      resultUrl: null,
-      resultBlob: null,
-    })
+    setImageState({ originalFile: file, originalUrl: URL.createObjectURL(file), resultUrl: null, resultBlob: null })
     setProcessingState('idle')
     setErrorMessage('')
   }, [imageState.originalUrl, imageState.resultUrl])
 
   const handleRemoveBg = useCallback(async () => {
     if (!imageState.originalFile) return
-
     setProcessingState('processing')
     setErrorMessage('')
 
     try {
       const formData = new FormData()
       formData.append('image_file', imageState.originalFile)
-
-      const response = await fetch('/api/remove-bg', {
-        method: 'POST',
-        body: formData,
-      })
+      const response = await fetch('/api/remove-bg', { method: 'POST', body: formData })
 
       if (!response.ok) {
-        let errorData: { error?: string } = {}
-        try { errorData = await response.json() } catch { /* ignore */ }
-
-        if (response.status === 402) {
-          throw new Error('API quota exhausted. Please try again later.')
-        } else if (response.status === 400) {
-          throw new Error(errorData.error || 'Invalid image. Please try a different file.')
-        } else if (response.status === 429) {
-          throw new Error('Too many requests. Please wait a moment and try again.')
-        } else if (response.status === 401) {
-          throw new Error('Please sign in to continue.')
-        } else {
-          throw new Error(errorData.error || `Server error (${response.status}). Please try again.`)
-        }
+        const errorData = await response.json().catch(() => ({}))
+        throw new Error(errorData.error || `Error (${response.status})`)
       }
 
       const blob = await response.blob()
-      const resultUrl = URL.createObjectURL(blob)
-      setImageState(prev => ({ ...prev, resultUrl, resultBlob: blob }))
+      setImageState(prev => ({ ...prev, resultUrl: URL.createObjectURL(blob), resultBlob: blob }))
       setProcessingState('done')
     } catch (err) {
-      const message = err instanceof Error ? err.message : 'Something went wrong. Please try again.'
-      setErrorMessage(message)
+      setErrorMessage(err instanceof Error ? err.message : 'Error')
       setProcessingState('error')
     }
   }, [imageState.originalFile])
 
   const handleDownload = useCallback(() => {
     if (!imageState.resultBlob || !imageState.originalFile) return
-    const originalName = imageState.originalFile.name.replace(/\.[^.]+$/, '')
-    const filename = `removed-bg-${originalName}.png`
     const link = document.createElement('a')
     link.href = URL.createObjectURL(imageState.resultBlob)
-    link.download = filename
-    document.body.appendChild(link)
+    link.download = `removed-bg-${imageState.originalFile.name.replace(/\.[^.]+$/, '')}.png`
     link.click()
-    document.body.removeChild(link)
   }, [imageState.resultBlob, imageState.originalFile])
 
   const handleReset = useCallback(() => {
@@ -115,145 +81,66 @@ export default function Home() {
     setBgColor('transparent')
   }, [imageState.originalUrl, imageState.resultUrl])
 
-  const showPreview = imageState.originalUrl !== null
-  const showResult = imageState.resultUrl !== null
-  const isProcessing = processingState === 'processing'
-
-  // Show loading
-  if (!isLoaded) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Loading...</p>
-        </div>
-      </div>
-    )
+  if (status === 'loading') {
+    return <div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div></div>
   }
+
+  if (status === 'unauthenticated') return null
+
+  const showPreview = !!imageState.originalUrl
+  const showResult = !!imageState.resultUrl
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-50 to-white">
       <Header />
-
-      <main className="flex-1 w-full max-w-5xl mx-auto px-4 py-10 sm:px-6 lg:px-8">
-
-        {/* Hero text */}
+      <main className="flex-1 max-w-5xl mx-auto px-4 py-10">
         {!showPreview && (
-          <div className="text-center mb-10 animate-fade-in">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-3 leading-tight">
-              Remove backgrounds in{' '}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-500">seconds</span>
-            </h2>
-            <p className="text-gray-500 text-lg max-w-xl mx-auto">
-              Upload an image and get a clean transparent PNG instantly — no sign-up, no watermarks.
-            </p>
+          <div className="text-center mb-10">
+            <h2 className="text-4xl font-bold text-gray-900 mb-3">Remove backgrounds in <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-500">seconds</span></h2>
+            <p className="text-gray-500 text-lg">Upload an image and get a clean transparent PNG instantly</p>
           </div>
         )}
 
-        {/* Upload zone */}
-        {!showPreview && (
-          <div className="animate-fade-in">
-            <UploadZone onFileSelect={handleFileSelect} />
-          </div>
-        )}
+        {!showPreview && <UploadZone onFileSelect={handleFileSelect} />}
 
-        {/* Preview + actions */}
         {showPreview && (
-          <div className="animate-slide-up space-y-6">
-            <PreviewArea
-              originalUrl={imageState.originalUrl!}
-              resultUrl={imageState.resultUrl}
-              originalFileName={imageState.originalFile?.name || 'image'}
-              processingState={processingState}
-              bgColor={bgColor}
-            />
-
-            {/* Error */}
+          <div className="space-y-6">
+            <PreviewArea originalUrl={imageState.originalUrl!} resultUrl={imageState.resultUrl} originalFileName={imageState.originalFile?.name || ''} processingState={processingState} bgColor={bgColor} />
+            
             {processingState === 'error' && (
-              <div className="rounded-xl border border-red-200 bg-red-50 p-4 flex items-start gap-3 animate-fade-in">
-                <span className="text-red-500 text-xl flex-shrink-0 mt-0.5">⚠️</span>
-                <div>
-                  <p className="font-semibold text-red-700">Processing failed</p>
-                  <p className="text-red-600 text-sm mt-0.5">{errorMessage}</p>
-                </div>
-              </div>
+              <div className="rounded-xl border border-red-200 bg-red-50 p-4 text-red-700">{errorMessage}</div>
             )}
 
-            {/* Background picker */}
-            {showResult && (
-              <BackgroundPicker
-                selectedColor={bgColor}
-                onColorChange={setBgColor}
-              />
-            )}
+            {showResult && <BackgroundPicker selectedColor={bgColor} onColorChange={setBgColor} />}
 
-            {/* Action buttons */}
-            <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+            <div className="flex flex-wrap justify-center gap-3">
               {!showResult && (
-                <button
-                  onClick={handleRemoveBg}
-                  disabled={isProcessing}
-                  className="bg-gradient-to-r from-purple-600 to-blue-500 text-white font-semibold px-8 py-3.5 rounded-xl flex items-center gap-2.5 text-base shadow-lg hover:shadow-xl transition-shadow disabled:opacity-60 disabled:cursor-not-allowed"
-                >
-                  {isProcessing ? (
-                    <>
-                      <svg className="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                      </svg>
-                      Removing Background…
-                    </>
-                  ) : (
-                    <>✨ Remove Background</>
-                  )}
+                <button onClick={handleRemoveBg} disabled={processingState === 'processing'} className="bg-gradient-to-r from-purple-600 to-blue-500 text-white font-semibold px-8 py-3.5 rounded-xl disabled:opacity-60">
+                  {processingState === 'processing' ? 'Processing...' : '✨ Remove Background'}
                 </button>
               )}
-
               {showResult && (
-                <button
-                  onClick={handleDownload}
-                  className="bg-gradient-to-r from-purple-600 to-blue-500 text-white font-semibold px-8 py-3.5 rounded-xl flex items-center gap-2.5 text-base shadow-lg hover:shadow-xl transition-shadow"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                  </svg>
-                  Download PNG
+                <button onClick={handleDownload} className="bg-gradient-to-r from-purple-600 to-blue-500 text-white font-semibold px-8 py-3.5 rounded-xl">
+                  ⬇️ Download PNG
                 </button>
               )}
-
-              <button
-                onClick={handleReset}
-                className="px-6 py-3.5 rounded-xl border border-gray-200 text-gray-600 font-medium hover:bg-gray-50 hover:border-gray-300 transition-colors text-base"
-              >
-                ← Try Another
-              </button>
+              <button onClick={handleReset} className="px-6 py-3.5 rounded-xl border border-gray-200 text-gray-600">← Try Another</button>
             </div>
           </div>
         )}
 
-        {/* How it works */}
         {!showPreview && (
-          <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 animate-fade-in">
-            {[
-              { icon: '📤', step: '1', title: 'Upload', desc: 'Drag & drop or click to select a JPG, PNG, or WebP image (up to 10 MB).' },
-              { icon: '✨', step: '2', title: 'Process', desc: 'Our AI instantly removes the background with pixel-perfect precision.' },
-              { icon: '⬇️', step: '3', title: 'Download', desc: 'Get a clean transparent PNG ready for any use — no watermarks.' },
-            ].map(({ icon, step, title, desc }) => (
-              <div key={step} className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex flex-col items-center text-center gap-3">
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-500 rounded-xl flex items-center justify-center text-2xl shadow-sm">
-                  {icon}
-                </div>
-                <div>
-                  <p className="text-xs font-semibold text-purple-500 uppercase tracking-widest mb-1">Step {step}</p>
-                  <h3 className="font-bold text-gray-800 text-lg">{title}</h3>
-                  <p className="text-gray-500 text-sm mt-1">{desc}</p>
-                </div>
+          <div className="mt-16 grid grid-cols-3 gap-6">
+            {[{icon:'📤',title:'Upload',desc:'Drag & drop JPG/PNG/WebP up to 10MB'},{icon:'✨',title:'Process',desc:'AI removes background instantly'},{icon:'⬇️',title:'Download',desc:'Get clean transparent PNG'}].map((item,i) => (
+              <div key={i} className="bg-white rounded-2xl border border-gray-100 p-6 text-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-500 rounded-xl flex items-center justify-center text-2xl mx-auto mb-3">{item.icon}</div>
+                <h3 className="font-bold">{item.title}</h3>
+                <p className="text-gray-500 text-sm mt-1">{item.desc}</p>
               </div>
             ))}
           </div>
         )}
       </main>
-
       <Footer />
     </div>
   )

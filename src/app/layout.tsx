@@ -1,19 +1,13 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { ClerkProvider } from '@clerk/nextjs'
+import Providers from '@/components/Providers'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'BG Remover — Remove Image Background Instantly',
-  description: 'Remove image backgrounds in seconds. Free, fast, and powered by AI.',
-  keywords: ['background remover', 'remove background', 'image editing', 'transparent background'],
-  openGraph: {
-    title: 'BG Remover — Remove Image Background Instantly',
-    description: 'Remove image backgrounds in seconds. Free, fast, and powered by AI.',
-    type: 'website',
-  },
+  description: 'Remove image backgrounds in seconds.',
 }
 
 export default function RootLayout({
@@ -22,12 +16,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <ClerkProvider>
-      <html lang="en" className={inter.className}>
-        <body className="min-h-screen bg-gray-50 text-gray-900 antialiased">
-          {children}
-        </body>
-      </html>
-    </ClerkProvider>
+    <html lang="en" className={inter.className}>
+      <body className="min-h-screen bg-gray-50 text-gray-900 antialiased">
+        <Providers>{children}</Providers>
+      </body>
+    </html>
   )
 }

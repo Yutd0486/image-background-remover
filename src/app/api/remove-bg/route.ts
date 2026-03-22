@@ -1,13 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getAuth } from '@clerk/nextjs/server'
-
-export const runtime = 'edge'
+import { getServerSession } from 'next-auth/next'
+import { authOptions } from '../auth/[...nextauth]/options'
 
 export async function POST(request: NextRequest) {
-  // Check authentication
-  const { userId } = getAuth(request)
+  const session = await getServerSession(authOptions)
   
-  if (!userId) {
+  if (!session?.user) {
     return NextResponse.json(
       { error: 'Unauthorized. Please sign in.', code: 'UNAUTHORIZED' },
       { status: 401 }
@@ -17,58 +15,29 @@ export async function POST(request: NextRequest) {
   try {
     const apiKey = process.env.REMOVEBG_API_KEY
     if (!apiKey) {
-      return NextResponse.json(
-        { error: 'API key not configured', code: 'NO_API_KEY' },
-        { status: 500 }
-      )
+      return NextResponse.json({ error: 'API key not configured', code: 'NO_API_KEY' }, { status: 500 })
     }
 
-    // Parse incoming multipart form data
     const formData = await request.formData()
     const imageFile = formData.get('image_file')
 
     if (!imageFile || !(imageFile instanceof Blob)) {
-      return NextResponse.json(
-        { error: 'No image file provided', code: 'MISSING_FILE' },
-        { status: 400 }
-      )
+      return NextResponse.json({ error: 'No image file provided', code: 'MISSING_FILE' }, { status: 400 })
     }
 
-    // Validate MIME type
     const allowedMimeTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif']
     if (!allowedMimeTypes.includes(imageFile.type)) {
-      return NextResponse.json(
-        { error: 'Invalid file type. Only JPEG, PNG, WebP, and GIF are allowed.', code: 'INVALID_MIME_TYPE' },
-        { status: 400 }
-      )
+      return NextResponse.json({ error: 'Invalid file type', code: 'INVALID_MIME_TYPE' }, { status: 400 })
     }
 
-    // Validate file extension
-    const file = imageFile as File
-    const fileName = file.name?.toLowerCase() || ''
-    const allowedExtensions = ['.jpg', '.jpeg', '.png', '.webp', '.gif']
-    const hasValidExtension = allowedExtensions.some(ext => fileName.endsWith(ext))
-    if (fileName && !hasValidExtension) {
-      return NextResponse.json(
-        { error: 'Invalid file extension.', code: 'INVALID_EXTENSION' },
-        { status: 400 }
-      )
-    }
-
-    // Validate file size (10MB)
     if (imageFile.size > 10 * 1024 * 1024) {
-      return NextResponse.json(
-        { error: 'File too large. Maximum size is 10MB.', code: 'FILE_TOO_LARGE' },
-        { status: 400 }
-      )
+      return NextResponse.json({ error: 'File too large. Max 10MB', code: 'FILE_TOO_LARGE' }, { status: 400 })
     }
 
-    // Build form data for Remove.bg API
     const removeBgForm = new FormData()
     removeBgForm.append('image_file', imageFile)
     removeBgForm.append('size', 'auto')
 
-    // Call Remove.bg API with timeout
     const controller = new AbortController()
     const timeoutId = setTimeout(() => controller.abort(), 25000)
 
@@ -76,81 +45,28 @@ export async function POST(request: NextRequest) {
     try {
       removeBgResponse = await fetch('https://api.remove.bg/v1.0/removebg', {
         method: 'POST',
-        headers: {
-          'X-Api-Key': apiKey,
-        },
+        headers: { 'X-Api-Key': apiKey },
         body: removeBgForm,
         signal: controller.signal,
       })
     } catch (fetchError) {
       clearTimeout(timeoutId)
-      if (fetchError instanceof Error && fetchError.name === 'AbortError') {
-        return NextResponse.json(
-          { error: 'Request timed out. Please try again.', code: 'TIMEOUT' },
-          { status: 504 }
-        )
-      }
-      return NextResponse.json(
-        { error: 'Failed to connect to processing service.', code: 'NETWORK_ERROR' },
-        { status: 502 }
-      )
+      return NextResponse.json({ error: fetchError instanceof Error && fetchError.name === 'AbortError' ? 'Request timed out' : 'Network error' }, { status: 502 })
     }
     clearTimeout(timeoutId)
 
-    // Handle Remove.bg error responses
     if (!removeBgResponse.ok) {
-      let errorBody: { errors?: Array<{ title?: string; code?: string }> } = {}
-      try {
-        errorBody = await removeBgResponse.json()
-      } catch {
-        // ignore
-      }
-
+      const errorBody = await removeBgResponse.json().catch(() => ({}))
       const errorTitle = errorBody.errors?.[0]?.title || 'Unknown error'
-      const errorCode = errorBody.errors?.[0]?.code || 'UNKNOWN'
-
-      if (removeBgResponse.status === 402) {
-        return NextResponse.json(
-          { error: 'API quota exhausted.', code: 'QUOTA_EXCEEDED' },
-          { status: 402 }
-        )
-      }
-
-      if (removeBgResponse.status === 400) {
-        return NextResponse.json(
-          { error: `Invalid image: ${errorTitle}`, code: errorCode },
-          { status: 400 }
-        )
-      }
-
-      if (removeBgResponse.status === 429) {
-        return NextResponse.json(
-          { error: 'Too many requests.', code: 'RATE_LIMITED' },
-          { status: 429 }
-        )
-      }
-
-      return NextResponse.json(
-        { error: errorTitle, code: errorCode },
-        { status: removeBgResponse.status }
-      )
+      if (removeBgResponse.status === 402) return NextResponse.json({ error: 'API quota exhausted', code: 'QUOTA_EXCEEDED' }, { status: 402 })
+      if (removeBgResponse.status === 400) return NextResponse.json({ error: `Invalid image: ${errorTitle}`, code: 'INVALID_IMAGE' }, { status: 400 })
+      return NextResponse.json({ error: errorTitle }, { status: removeBgResponse.status })
     }
 
-    // Stream the PNG result back to client
     const imageBuffer = await removeBgResponse.arrayBuffer()
-
-    return new NextResponse(imageBuffer, {
-      status: 200,
-      headers: {
-        'Content-Type': 'image/png',
-        'Cache-Control': 'no-store',
-      },
-    })
+    return new NextResponse(imageBuffer, { headers: { 'Content-Type': 'image/png', 'Cache-Control': 'no-store' } })
   } catch (err) {
-    console.error('[remove-bg] Unexpected error:', err)
-    return NextResponse.json(
-      { error: 'Internal server error.', code: 'INTERNAL_ERROR' },
-      { status: 500 }
-    )
+    console.error('[remove-bg] Error:', err)
+    return NextResponse.json({ error: 'Internal server error', code: 'INTERNAL_ERROR' }, { status: 500 })
   }
 }
