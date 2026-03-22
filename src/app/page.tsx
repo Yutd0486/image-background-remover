@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, useCallback, useEffect } from 'react'
-import { useSession, signIn, signOut } from 'next-auth/react'
+import { useState, useCallback } from 'react'
+import { useAuth } from '@clerk/nextjs'
 import { useRouter } from 'next/navigation'
 import Header from '@/components/Header'
 import UploadZone from '@/components/UploadZone'
@@ -19,7 +19,7 @@ export interface ImageState {
 }
 
 export default function Home() {
-  const { data: session, status } = useSession()
+  const { isLoaded, userId } = useAuth()
   const router = useRouter()
   const [imageState, setImageState] = useState<ImageState>({
     originalFile: null,
@@ -32,11 +32,9 @@ export default function Home() {
   const [bgColor, setBgColor] = useState<string>('transparent')
 
   // Redirect to login if not authenticated
-  useEffect(() => {
-    if (status === 'unauthenticated') {
-      router.push('/login')
-    }
-  }, [status, router])
+  if (isLoaded && !userId) {
+    router.push('/login')
+  }
 
   const handleFileSelect = useCallback((file: File) => {
     if (imageState.originalUrl) URL.revokeObjectURL(imageState.originalUrl)
@@ -78,6 +76,8 @@ export default function Home() {
           throw new Error(errorData.error || 'Invalid image. Please try a different file.')
         } else if (response.status === 429) {
           throw new Error('Too many requests. Please wait a moment and try again.')
+        } else if (response.status === 401) {
+          throw new Error('Please sign in to continue.')
         } else {
           throw new Error(errorData.error || `Server error (${response.status}). Please try again.`)
         }
@@ -119,31 +119,13 @@ export default function Home() {
   const showResult = imageState.resultUrl !== null
   const isProcessing = processingState === 'processing'
 
-  // Show loading while checking auth
-  if (status === 'loading') {
+  // Show loading
+  if (!isLoaded) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
           <p className="mt-4 text-gray-600">Loading...</p>
-        </div>
-      </div>
-    )
-  }
-
-  // Show login prompt if not authenticated
-  if (status === 'unauthenticated') {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
-        <div className="max-w-md w-full mx-4 text-center">
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">BG Remover</h1>
-          <p className="text-gray-600 mb-6">Please sign in to use the background remover</p>
-          <button
-            onClick={() => signIn('google', { callbackUrl: '/' })}
-            className="bg-blue-600 text-white font-medium py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors"
-          >
-            Sign in with Google
-          </button>
         </div>
       </div>
     )
@@ -155,12 +137,12 @@ export default function Home() {
 
       <main className="flex-1 w-full max-w-5xl mx-auto px-4 py-10 sm:px-6 lg:px-8">
 
-        {/* Hero text — only when no image uploaded */}
+        {/* Hero text */}
         {!showPreview && (
           <div className="text-center mb-10 animate-fade-in">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-3 leading-tight">
               Remove backgrounds in{' '}
-              <span className="gradient-text">seconds</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-500">seconds</span>
             </h2>
             <p className="text-gray-500 text-lg max-w-xl mx-auto">
               Upload an image and get a clean transparent PNG instantly — no sign-up, no watermarks.
@@ -197,7 +179,7 @@ export default function Home() {
               </div>
             )}
 
-            {/* Background picker — shown when result is ready */}
+            {/* Background picker */}
             {showResult && (
               <BackgroundPicker
                 selectedColor={bgColor}
@@ -211,7 +193,7 @@ export default function Home() {
                 <button
                   onClick={handleRemoveBg}
                   disabled={isProcessing}
-                  className="btn-gradient text-white font-semibold px-8 py-3.5 rounded-xl flex items-center gap-2.5 text-base shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="bg-gradient-to-r from-purple-600 to-blue-500 text-white font-semibold px-8 py-3.5 rounded-xl flex items-center gap-2.5 text-base shadow-lg hover:shadow-xl transition-shadow disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   {isProcessing ? (
                     <>
@@ -230,7 +212,7 @@ export default function Home() {
               {showResult && (
                 <button
                   onClick={handleDownload}
-                  className="btn-gradient text-white font-semibold px-8 py-3.5 rounded-xl flex items-center gap-2.5 text-base shadow-lg"
+                  className="bg-gradient-to-r from-purple-600 to-blue-500 text-white font-semibold px-8 py-3.5 rounded-xl flex items-center gap-2.5 text-base shadow-lg hover:shadow-xl transition-shadow"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -249,7 +231,7 @@ export default function Home() {
           </div>
         )}
 
-        {/* How it works — only on landing */}
+        {/* How it works */}
         {!showPreview && (
           <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 animate-fade-in">
             {[
@@ -258,7 +240,7 @@ export default function Home() {
               { icon: '⬇️', step: '3', title: 'Download', desc: 'Get a clean transparent PNG ready for any use — no watermarks.' },
             ].map(({ icon, step, title, desc }) => (
               <div key={step} className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex flex-col items-center text-center gap-3">
-                <div className="w-12 h-12 btn-gradient rounded-xl flex items-center justify-center text-2xl shadow-sm">
+                <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-500 rounded-xl flex items-center justify-center text-2xl shadow-sm">
                   {icon}
                 </div>
                 <div>

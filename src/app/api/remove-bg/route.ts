@@ -1,39 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { getAuth } from '@clerk/nextjs/server'
 
 export const runtime = 'edge'
 
-// Simple in-memory rate limiter (resets every minute)
-const rateLimitMap = new Map<string, { count: number; resetTime: number }>()
-const RATE_LIMIT = 10 // requests per minute per IP
-
-function checkRateLimit(ip: string): boolean {
-  const now = Date.now()
-  const minute = 60 * 1000
-  const record = rateLimitMap.get(ip)
-
-  if (!record || now > record.resetTime) {
-    rateLimitMap.set(ip, { count: 1, resetTime: now + minute })
-    return true
-  }
-
-  if (record.count >= RATE_LIMIT) {
-    return false
-  }
-
-  record.count++
-  return true
-}
-
 export async function POST(request: NextRequest) {
-  // Rate limiting check
-  const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() 
-    || request.headers.get('x-real-ip') 
-    || 'unknown'
+  // Check authentication
+  const { userId } = getAuth(request)
   
-  if (!checkRateLimit(ip)) {
+  if (!userId) {
     return NextResponse.json(
-      { error: 'Too many requests. Please try again later.', code: 'RATE_LIMITED' },
-      { status: 429 }
+      { error: 'Unauthorized. Please sign in.', code: 'UNAUTHORIZED' },
+      { status: 401 }
     )
   }
 
@@ -66,14 +43,14 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Validate file extension (for safety)
+    // Validate file extension
     const file = imageFile as File
     const fileName = file.name?.toLowerCase() || ''
     const allowedExtensions = ['.jpg', '.jpeg', '.png', '.webp', '.gif']
     const hasValidExtension = allowedExtensions.some(ext => fileName.endsWith(ext))
     if (fileName && !hasValidExtension) {
       return NextResponse.json(
-        { error: 'Invalid file extension. Only .jpg, .jpeg, .png, .webp, and .gif are allowed.', code: 'INVALID_EXTENSION' },
+        { error: 'Invalid file extension.', code: 'INVALID_EXTENSION' },
         { status: 400 }
       )
     }
@@ -134,7 +111,7 @@ export async function POST(request: NextRequest) {
 
       if (removeBgResponse.status === 402) {
         return NextResponse.json(
-          { error: 'API quota exhausted. Please upgrade your plan or try later.', code: 'QUOTA_EXCEEDED' },
+          { error: 'API quota exhausted.', code: 'QUOTA_EXCEEDED' },
           { status: 402 }
         )
       }
@@ -148,7 +125,7 @@ export async function POST(request: NextRequest) {
 
       if (removeBgResponse.status === 429) {
         return NextResponse.json(
-          { error: 'Too many requests. Please slow down.', code: 'RATE_LIMITED' },
+          { error: 'Too many requests.', code: 'RATE_LIMITED' },
           { status: 429 }
         )
       }
@@ -172,7 +149,7 @@ export async function POST(request: NextRequest) {
   } catch (err) {
     console.error('[remove-bg] Unexpected error:', err)
     return NextResponse.json(
-      { error: 'Internal server error. Please try again.', code: 'INTERNAL_ERROR' },
+      { error: 'Internal server error.', code: 'INTERNAL_ERROR' },
       { status: 500 }
     )
   }
