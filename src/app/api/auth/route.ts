@@ -9,13 +9,12 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
     
-    // Handle login
     if (body.action === 'login') {
       if (body.password === ADMIN_PASSWORD) {
         const response = NextResponse.json({ success: true })
         response.cookies.set('auth', ADMIN_PASSWORD, { 
           httpOnly: true, 
-          maxAge: 60 * 60 * 24 * 7, // 1 week
+          maxAge: 60 * 60 * 24 * 7,
           sameSite: 'lax'
         })
         return response
@@ -23,7 +22,6 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Invalid password' }, { status: 401 })
     }
     
-    // Handle logout
     if (body.action === 'logout') {
       const response = NextResponse.json({ success: true })
       response.cookies.delete('auth')
