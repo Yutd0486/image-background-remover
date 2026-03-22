@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 import Header from '@/components/Header'
 import UploadZone from '@/components/UploadZone'
 import PreviewArea from '@/components/PreviewArea'
@@ -23,6 +23,25 @@ export default function Home() {
   const [processingState, setProcessingState] = useState<ProcessingState>('idle')
   const [errorMessage, setErrorMessage] = useState('')
   const [bgColor, setBgColor] = useState('transparent')
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null)
+  const [showLoginPrompt, setShowLoginPrompt] = useState(false)
+  const checkedAuth = useRef(false)
+
+  // Check auth on mount
+  useEffect(() => {
+    if (checkedAuth.current) return
+    checkedAuth.current = true
+    
+    fetch('/api/auth')
+      .then(res => {
+        setIsAuthenticated(res.ok)
+        setShowLoginPrompt(!res.ok)
+      })
+      .catch(() => {
+        setIsAuthenticated(false)
+        setShowLoginPrompt(true)
+      })
+  }, [])
 
   const handleFileSelect = useCallback((file: File) => {
     if (imageState.originalUrl) URL.revokeObjectURL(imageState.originalUrl)
@@ -72,6 +91,31 @@ export default function Home() {
     setErrorMessage('')
     setBgColor('transparent')
   }, [imageState.originalUrl, imageState.resultUrl])
+
+  // Show loading
+  if (isAuthenticated === null) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      </div>
+    )
+  }
+
+  // Show login prompt
+  if (showLoginPrompt || isAuthenticated === false) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
+        <div className="text-center">
+          <div className="text-6xl mb-4">🔒</div>
+          <h1 className="text-2xl font-bold mb-2">BG Remover</h1>
+          <p className="text-gray-500 mb-6">This tool is password protected</p>
+          <a href="/login" className="bg-gradient-to-r from-purple-600 to-blue-500 text-white font-semibold px-6 py-3 rounded-lg inline-block">
+            Enter Password
+          </a>
+        </div>
+      </div>
+    )
+  }
 
   const showPreview = !!imageState.originalUrl
   const showResult = !!imageState.resultUrl
