@@ -3,6 +3,7 @@
 import { useState } from 'react'
 
 export default function LoginPage() {
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
@@ -35,35 +36,56 @@ export default function LoginPage() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
       <div className="max-w-md w-full mx-4">
         <div className="bg-white rounded-2xl shadow-xl p-8">
-          {/* Logo */}
+          {/* Header */}
           <div className="text-center mb-6">
-            <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
-              <span className="text-white text-3xl">✂️</span>
+            <div className="w-14 h-14 bg-gradient-to-r from-purple-600 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <span className="text-white text-2xl">✂️</span>
             </div>
-            <h1 className="text-2xl font-bold text-gray-900">BG Remover</h1>
-            <p className="text-gray-500 text-sm mt-1">Remove backgrounds in seconds</p>
+            <h2 className="text-xl font-semibold text-gray-900">Sign in to your account</h2>
           </div>
 
-          {/* Password Form */}
-          <form onSubmit={handleSubmit}>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Enter password"
-              className="w-full px-4 py-3 rounded-lg border border-gray-200 mb-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-            />
-            
-            {error && <p className="text-red-500 text-sm mb-3">{error}</p>}
-            
+          {/* Form */}
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Email or phone</label>
+              <input
+                type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              />
+            </div>
+
+            {error && <p className="text-red-500 text-sm">{error}</p>}
+
             <button
               type="submit"
               disabled={loading || !password}
-              className="w-full bg-gradient-to-r from-purple-600 to-blue-500 text-white font-semibold py-3 rounded-lg hover:opacity-90 transition-opacity disabled:opacity-60"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 rounded-lg transition-colors disabled:opacity-60"
             >
-              {loading ? 'Loading...' : 'Continue'}
+              {loading ? 'Signing in...' : 'Sign in'}
             </button>
           </form>
+
+          {/* Links */}
+          <div className="mt-4 text-center space-y-2">
+            <a href="#" className="block text-sm text-blue-600 hover:text-blue-700">
+              Forgot password?
+            </a>
+            <a href="#" className="block text-sm text-gray-600">
+              Don't have an account? <span className="text-blue-600 hover:text-blue-700">Sign up</span>
+            </a>
+          </div>
         </div>
 
         {/* Footer */}
