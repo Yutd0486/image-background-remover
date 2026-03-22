@@ -1,8 +1,6 @@
 'use client'
 
-import { useState, useCallback, useEffect } from 'react'
-import { useSession } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
+import { useState, useCallback } from 'react'
 import Header from '@/components/Header'
 import UploadZone from '@/components/UploadZone'
 import PreviewArea from '@/components/PreviewArea'
@@ -19,18 +17,12 @@ export interface ImageState {
 }
 
 export default function Home() {
-  const { data: session, status } = useSession()
-  const router = useRouter()
   const [imageState, setImageState] = useState<ImageState>({
     originalFile: null, originalUrl: null, resultUrl: null, resultBlob: null,
   })
   const [processingState, setProcessingState] = useState<ProcessingState>('idle')
   const [errorMessage, setErrorMessage] = useState('')
   const [bgColor, setBgColor] = useState('transparent')
-
-  useEffect(() => {
-    if (status === 'unauthenticated') router.push('/login')
-  }, [status, router])
 
   const handleFileSelect = useCallback((file: File) => {
     if (imageState.originalUrl) URL.revokeObjectURL(imageState.originalUrl)
@@ -80,12 +72,6 @@ export default function Home() {
     setErrorMessage('')
     setBgColor('transparent')
   }, [imageState.originalUrl, imageState.resultUrl])
-
-  if (status === 'loading') {
-    return <div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div></div>
-  }
-
-  if (status === 'unauthenticated') return null
 
   const showPreview = !!imageState.originalUrl
   const showResult = !!imageState.resultUrl

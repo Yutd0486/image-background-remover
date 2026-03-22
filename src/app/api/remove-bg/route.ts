@@ -1,17 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getServerSession } from 'next-auth/next'
-import { authOptions } from '../auth/[...nextauth]/options'
+
+export const runtime = 'edge'
 
 export async function POST(request: NextRequest) {
-  const session = await getServerSession(authOptions)
-  
-  if (!session?.user) {
-    return NextResponse.json(
-      { error: 'Unauthorized. Please sign in.', code: 'UNAUTHORIZED' },
-      { status: 401 }
-    )
-  }
-
   try {
     const apiKey = process.env.REMOVEBG_API_KEY
     if (!apiKey) {
