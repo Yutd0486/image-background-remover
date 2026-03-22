@@ -1,6 +1,8 @@
 'use client'
 
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
+import { useSession, signIn, signOut } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 import Header from '@/components/Header'
 import UploadZone from '@/components/UploadZone'
 import PreviewArea from '@/components/PreviewArea'
@@ -17,6 +19,8 @@ export interface ImageState {
 }
 
 export default function Home() {
+  const { data: session, status } = useSession()
+  const router = useRouter()
   const [imageState, setImageState] = useState<ImageState>({
     originalFile: null,
     originalUrl: null,
@@ -26,6 +30,13 @@ export default function Home() {
   const [processingState, setProcessingState] = useState<ProcessingState>('idle')
   const [errorMessage, setErrorMessage] = useState<string>('')
   const [bgColor, setBgColor] = useState<string>('transparent')
+
+  // Redirect to login if not authenticated
+  useEffect(() => {
+    if (status === 'unauthenticated') {
+      router.push('/login')
+    }
+  }, [status, router])
 
   const handleFileSelect = useCallback((file: File) => {
     if (imageState.originalUrl) URL.revokeObjectURL(imageState.originalUrl)
@@ -107,6 +118,36 @@ export default function Home() {
   const showPreview = imageState.originalUrl !== null
   const showResult = imageState.resultUrl !== null
   const isProcessing = processingState === 'processing'
+
+  // Show loading while checking auth
+  if (status === 'loading') {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+          <p className="mt-4 text-gray-600">Loading...</p>
+        </div>
+      </div>
+    )
+  }
+
+  // Show login prompt if not authenticated
+  if (status === 'unauthenticated') {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
+        <div className="max-w-md w-full mx-4 text-center">
+          <h1 className="text-3xl font-bold text-gray-900 mb-4">BG Remover</h1>
+          <p className="text-gray-600 mb-6">Please sign in to use the background remover</p>
+          <button
+            onClick={() => signIn('google', { callbackUrl: '/' })}
+            className="bg-blue-600 text-white font-medium py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors"
+          >
+            Sign in with Google
+          </button>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-50 to-white">
