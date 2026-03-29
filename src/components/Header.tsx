@@ -1,10 +1,17 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
 export default function Header() {
   const [loggingOut, setLoggingOut] = useState(false)
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+
+  useEffect(() => {
+    fetch('/api/auth')
+      .then(res => setIsAuthenticated(res.ok))
+      .catch(() => setIsAuthenticated(false))
+  }, [])
 
   const handleLogout = async () => {
     setLoggingOut(true)
@@ -27,13 +34,20 @@ export default function Header() {
         </Link>
 
         <div className="flex items-center gap-3">
-          <button
-            onClick={handleLogout}
-            disabled={loggingOut}
-            className="text-sm font-medium text-gray-600 hover:text-gray-900"
-          >
-            {loggingOut ? '...' : 'Logout'}
-          </button>
+          {isAuthenticated && (
+            <>
+              <Link href="/profile" className="text-sm font-medium text-gray-600 hover:text-gray-900">
+                Profile
+              </Link>
+              <button
+                onClick={handleLogout}
+                disabled={loggingOut}
+                className="text-sm font-medium text-gray-600 hover:text-gray-900"
+              >
+                {loggingOut ? '...' : 'Logout'}
+              </button>
+            </>
+          )}
           <div className="text-xs font-medium text-purple-700 bg-purple-50 px-3 py-1.5 rounded-full">
             Powered by AI
           </div>
