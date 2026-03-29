@@ -6,6 +6,7 @@ export async function GET(request: NextRequest) {
   const googleClientId = process.env.GOOGLE_CLIENT_ID
   
   if (!googleClientId) {
+    console.error('Google OAuth: GOOGLE_CLIENT_ID not set')
     return new Response('Google OAuth not configured', { status: 500 })
   }
 
@@ -22,6 +23,7 @@ export async function GET(request: NextRequest) {
   })
 
   const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?${params.toString()}`
+  console.log('Google OAuth: Redirecting to', authUrl)
   
   return NextResponse.redirect(authUrl)
 }
