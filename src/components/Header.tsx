@@ -3,12 +3,23 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
-export default function Header() {
+export interface User {
+  email?: string
+  name?: string
+  picture?: string
+  loginMethod?: string
+}
+
+interface HeaderProps {
+  user?: User | null
+}
+
+export default function Header({ user }: HeaderProps) {
   const [loggingOut, setLoggingOut] = useState(false)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
 
   useEffect(() => {
-    fetch('/api/auth')
+    fetch('/api/auth', { credentials: 'include' })
       .then(res => setIsAuthenticated(res.ok))
       .catch(() => setIsAuthenticated(false))
   }, [])
@@ -19,6 +30,7 @@ export default function Header() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ action: 'logout' }),
+      credentials: 'include',
     })
     window.location.href = '/login'
   }
@@ -36,6 +48,16 @@ export default function Header() {
         <div className="flex items-center gap-3">
           {isAuthenticated && (
             <>
+              {user?.picture && (
+                <img 
+                  src={user.picture} 
+                  alt={user.name || 'User'} 
+                  className="w-8 h-8 rounded-full"
+                />
+              )}
+              {user?.name && (
+                <span className="text-sm font-medium text-gray-700">{user.name}</span>
+              )}
               <Link href="/profile" className="text-sm font-medium text-gray-600 hover:text-gray-900">
                 Profile
               </Link>

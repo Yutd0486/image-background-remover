@@ -16,6 +16,13 @@ export interface ImageState {
   resultBlob: Blob | null
 }
 
+export interface User {
+  email?: string
+  name?: string
+  picture?: string
+  loginMethod?: string
+}
+
 export default function Home() {
   const [imageState, setImageState] = useState<ImageState>({
     originalFile: null, originalUrl: null, resultUrl: null, resultBlob: null,
@@ -24,21 +31,30 @@ export default function Home() {
   const [errorMessage, setErrorMessage] = useState('')
   const [bgColor, setBgColor] = useState('transparent')
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null)
+  const [user, setUser] = useState<User | null>(null)
   const [showLoginPrompt, setShowLoginPrompt] = useState(false)
   const checkedAuth = useRef(false)
 
-  // Check auth on mount
+  // Check auth on mount - 支持 Google OAuth session 和密码认证
   useEffect(() => {
     if (checkedAuth.current) return
     checkedAuth.current = true
     
-    fetch('/api/auth')
+    fetch('/api/auth', { credentials: 'include' })
       .then(res => {
-        setIsAuthenticated(res.ok)
-        setShowLoginPrompt(!res.ok)
+        if (res.ok) {
+          return res.json()
+        }
+        throw new Error('Not authenticated')
+      })
+      .then(data => {
+        setIsAuthenticated(true)
+        setUser(data.user || null)
+        setShowLoginPrompt(false)
       })
       .catch(() => {
         setIsAuthenticated(false)
+        setUser(null)
         setShowLoginPrompt(true)
       })
   }, [])
@@ -108,9 +124,9 @@ export default function Home() {
         <div className="text-center">
           <div className="text-6xl mb-4">🔒</div>
           <h1 className="text-2xl font-bold mb-2">BG Remover</h1>
-          <p className="text-gray-500 mb-6">This tool is password protected</p>
+          <p className="text-gray-500 mb-6">Please sign in to use this tool</p>
           <a href="/login" className="bg-gradient-to-r from-purple-600 to-blue-500 text-white font-semibold px-6 py-3 rounded-lg inline-block">
-            Enter Password
+            Sign In
           </a>
         </div>
       </div>
@@ -122,7 +138,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-50 to-white">
-      <Header />
+      <Header user={user} />
       <main className="flex-1 max-w-5xl mx-auto px-4 py-10">
         {!showPreview && (
           <div className="text-center mb-10">

@@ -1,9 +1,38 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useRouter, useSearchParams } from 'next/navigation'
 
 export default function LoginPage() {
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
+  const searchParams = useSearchParams()
+  const router = useRouter()
+
+  // 检查是否已登录
+  useEffect(() => {
+    fetch('/api/auth', { credentials: 'include' })
+      .then(res => {
+        if (res.ok) {
+          router.push('/')
+        }
+      })
+      .catch(() => {})
+  }, [router])
+
+  // 检查 URL 中的错误参数
+  useEffect(() => {
+    const errorParam = searchParams.get('error')
+    if (errorParam) {
+      const errorMessages: Record<string, string> = {
+        oauth_not_configured: 'Google OAuth is not configured. Please contact the administrator.',
+        auth_failed: 'Authentication failed. Please try again.',
+        no_code: 'No authorization code received.',
+        access_denied: 'Access denied.',
+      }
+      setError(errorMessages[errorParam] || 'An error occurred during login.')
+    }
+  }, [searchParams])
 
   const handleGoogleLogin = () => {
     setLoading(true)
@@ -19,7 +48,14 @@ export default function LoginPage() {
               <span className="text-white text-2xl">✂️</span>
             </div>
             <h2 className="text-xl font-semibold text-gray-900">Sign in to your account</h2>
+            <p className="text-gray-500 text-sm mt-1">Use Google to access BG Remover</p>
           </div>
+
+          {error && (
+            <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
+              {error}
+            </div>
+          )}
 
           <button
             onClick={handleGoogleLogin}
