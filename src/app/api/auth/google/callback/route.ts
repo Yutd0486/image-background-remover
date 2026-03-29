@@ -8,16 +8,22 @@ export async function GET(request: NextRequest) {
   const error = searchParams.get('error')
 
   if (error) {
-    return NextResponse.redirect(new URL(`/login?error=${encodeURIComponent(error)}`, request.nextUrl.origin))
+    return NextResponse.redirect(new URL(`/login?error=${encodeURIComponent(error)}`, request.url))
   }
 
   if (!code) {
-    return NextResponse.redirect(new URL('/login?error=no_code', request.nextUrl.origin))
+    return NextResponse.redirect(new URL('/login?error=no_code', request.url))
   }
 
   const googleClientId = process.env.GOOGLE_CLIENT_ID
   const googleClientSecret = process.env.GOOGLE_CLIENT_SECRET
-  const redirectUri = `${request.nextUrl.origin}/api/auth/google/callback`
+  const origin = process.env.NEXT_PUBLIC_SITE_URL || request.nextUrl.origin
+  const redirectUri = `${origin}/api/auth/google/callback`
+
+  if (!googleClientId || !googleClientSecret) {
+    console.error('Missing OAuth credentials:', { hasClientId: !!googleClientId, hasClientSecret: !!googleClientSecret })
+    return NextResponse.redirect(new URL('/login?error=oauth_not_configured', request.url))
+  }
 
   try {
     // Exchange code for tokens
@@ -26,14 +32,16 @@ export async function GET(request: NextRequest) {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams({
         code,
-        client_id: googleClientId!,
-        client_secret: googleClientSecret!,
+        client_id: googleClientId,
+        client_secret: googleClientSecret,
         redirect_uri: redirectUri,
         grant_type: 'authorization_code',
       }),
     })
 
     if (!tokenResponse.ok) {
+      const errorText = await tokenResponse.text()
+      console.error('Token exchange failed:', errorText)
       throw new Error('Failed to exchange code for tokens')
     }
 
@@ -58,7 +66,7 @@ export async function GET(request: NextRequest) {
       loginMethod: 'google',
     })
 
-    const response = NextResponse.redirect(new URL('/', request.nextUrl.origin))
+    const response = NextResponse.redirect(new URL('/', request.url))
     response.cookies.set('session', Buffer.from(sessionData).toString('base64'), {
       httpOnly: true,
       secure: true,
@@ -69,6 +77,6 @@ export async function GET(request: NextRequest) {
     return response
   } catch (err) {
     console.error('OAuth error:', err)
-    return NextResponse.redirect(new URL('/login?error=auth_failed', request.nextUrl.origin))
+    return NextResponse.redirect(new URL('/login?error=auth_failed', request.url))
   }
 }

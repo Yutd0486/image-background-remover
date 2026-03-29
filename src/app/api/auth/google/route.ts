@@ -4,14 +4,24 @@ export const runtime = 'edge'
 
 export async function GET(request: NextRequest) {
   const googleClientId = process.env.GOOGLE_CLIENT_ID
-  const redirectUri = `${request.nextUrl.origin}/api/auth/google/callback`
+  
+  // Use environment variable for origin, fallback to request origin
+  const origin = process.env.NEXT_PUBLIC_SITE_URL || request.nextUrl.origin
+  const redirectUri = `${origin}/api/auth/google/callback`
   
   if (!googleClientId) {
-    return NextResponse.json({ error: 'Google OAuth not configured' }, { status: 500 })
+    return NextResponse.json({ error: 'Google OAuth not configured', hasClientId: !!googleClientId }, { status: 500 })
   }
 
-  const scopes = encodeURIComponent('https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email')
-  const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${googleClientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=code&scope=${scopes}&access_type=offline&prompt=consent`
+  const params = new URLSearchParams({
+    client_id: googleClientId,
+    redirect_uri: redirectUri,
+    response_type: 'code',
+    scope: 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email',
+    access_type: 'offline',
+    prompt: 'consent',
+  })
 
+  const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?${params.toString()}`
   return NextResponse.redirect(authUrl)
 }
