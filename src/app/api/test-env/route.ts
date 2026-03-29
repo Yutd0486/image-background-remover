@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server'
 
+export const runtime = 'edge'
+
 export async function GET() {
   // Test different ways of accessing env vars
   const envTest = {
