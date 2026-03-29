@@ -25,6 +25,7 @@ export async function POST(request: NextRequest) {
     if (body.action === 'logout') {
       const response = NextResponse.json({ success: true })
       response.cookies.delete('auth')
+      response.cookies.delete('session')
       return response
     }
     
@@ -35,8 +36,22 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET(request: NextRequest) {
-  const authCookie = request.cookies.get('auth')
+  // Check for Google OAuth session
+  const sessionCookie = request.cookies.get('session')
+  if (sessionCookie) {
+    try {
+      const userData = JSON.parse(Buffer.from(sessionCookie.value, 'base64').toString())
+      return NextResponse.json({ 
+        authenticated: true, 
+        user: userData 
+      })
+    } catch {
+      // Invalid session cookie
+    }
+  }
   
+  // Check for password-based auth
+  const authCookie = request.cookies.get('auth')
   if (authCookie?.value === ADMIN_PASSWORD) {
     return NextResponse.json({ authenticated: true })
   }
