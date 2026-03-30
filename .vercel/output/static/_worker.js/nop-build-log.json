@@ -1,5 +1,5 @@
 {
-  "timestamp": 1774884012924,
+  "timestamp": 1774884455158,
   "outputDir": ".vercel/output/static/_worker.js",
   "versions": {
     "@cloudflare/next-on-pages": "1.13.16"
@@ -29,7 +29,7 @@
             ]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/auth/google/callback.func.js",
-          "outputByteSize": 10607
+          "outputByteSize": 10583
         },
         {
           "relativePath": "/api/auth/google.func",
@@ -51,7 +51,7 @@
             ]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/auth/google.func.js",
-          "outputByteSize": 9712
+          "outputByteSize": 9675
         },
         {
           "relativePath": "/api/auth.func",
@@ -73,7 +73,7 @@
             ]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/auth.func.js",
-          "outputByteSize": 10179
+          "outputByteSize": 9703
         },
         {
           "relativePath": "/api/remove-bg.func",
@@ -233,13 +233,13 @@
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/request-async-storage-instance.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/request-async-storage-instance.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/request-async-storage.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/request-async-storage.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js",
-              ".next/server/chunks/165.js": ".next/server/chunks/165.js",
               ".next/server/chunks/725.js": ".next/server/chunks/725.js",
-              ".next/server/app/page_client-reference-manifest.js": ".next/server/app/page_client-reference-manifest.js",
               ".next/server/app/login/page_client-reference-manifest.js": ".next/server/app/login/page_client-reference-manifest.js",
+              ".next/server/chunks/165.js": ".next/server/chunks/165.js",
+              ".next/server/app/page_client-reference-manifest.js": ".next/server/app/page_client-reference-manifest.js",
               ".next/server/app/profile/page_client-reference-manifest.js": ".next/server/app/profile/page_client-reference-manifest.js",
-              ".next/server/app/page.js": ".next/server/app/page.js",
               ".next/server/app/login/page.js": ".next/server/app/login/page.js",
+              ".next/server/app/page.js": ".next/server/app/page.js",
               ".next/server/app/profile/page.js": ".next/server/app/profile/page.js",
               ".next/server/pages/_app.js": ".next/server/pages/_app.js",
               ".next/server/pages/_error.js": ".next/server/pages/_error.js",
@@ -395,13 +395,13 @@
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/request-async-storage-instance.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/request-async-storage-instance.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/request-async-storage.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/request-async-storage.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js",
-              ".next/server/chunks/165.js": ".next/server/chunks/165.js",
               ".next/server/chunks/725.js": ".next/server/chunks/725.js",
-              ".next/server/app/page_client-reference-manifest.js": ".next/server/app/page_client-reference-manifest.js",
               ".next/server/app/login/page_client-reference-manifest.js": ".next/server/app/login/page_client-reference-manifest.js",
+              ".next/server/chunks/165.js": ".next/server/chunks/165.js",
+              ".next/server/app/page_client-reference-manifest.js": ".next/server/app/page_client-reference-manifest.js",
               ".next/server/app/profile/page_client-reference-manifest.js": ".next/server/app/profile/page_client-reference-manifest.js",
-              ".next/server/app/page.js": ".next/server/app/page.js",
               ".next/server/app/login/page.js": ".next/server/app/login/page.js",
+              ".next/server/app/page.js": ".next/server/app/page.js",
               ".next/server/app/profile/page.js": ".next/server/app/profile/page.js",
               ".next/server/pages/_app.js": ".next/server/pages/_app.js",
               ".next/server/pages/_error.js": ".next/server/pages/_error.js",
@@ -554,13 +554,13 @@
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/request-async-storage-instance.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/request-async-storage-instance.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/request-async-storage.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/request-async-storage.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js",
-              ".next/server/chunks/165.js": ".next/server/chunks/165.js",
               ".next/server/chunks/725.js": ".next/server/chunks/725.js",
-              ".next/server/app/page_client-reference-manifest.js": ".next/server/app/page_client-reference-manifest.js",
               ".next/server/app/login/page_client-reference-manifest.js": ".next/server/app/login/page_client-reference-manifest.js",
+              ".next/server/chunks/165.js": ".next/server/chunks/165.js",
+              ".next/server/app/page_client-reference-manifest.js": ".next/server/app/page_client-reference-manifest.js",
               ".next/server/app/profile/page_client-reference-manifest.js": ".next/server/app/profile/page_client-reference-manifest.js",
-              ".next/server/app/page.js": ".next/server/app/page.js",
               ".next/server/app/login/page.js": ".next/server/app/login/page.js",
+              ".next/server/app/page.js": ".next/server/app/page.js",
               ".next/server/app/profile/page.js": ".next/server/app/profile/page.js",
               ".next/server/pages/_app.js": ".next/server/pages/_app.js",
               ".next/server/pages/_error.js": ".next/server/pages/_error.js",
@@ -714,13 +714,13 @@
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/request-async-storage-instance.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/request-async-storage-instance.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/request-async-storage.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/request-async-storage.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js",
-              ".next/server/chunks/165.js": ".next/server/chunks/165.js",
               ".next/server/chunks/725.js": ".next/server/chunks/725.js",
-              ".next/server/app/page_client-reference-manifest.js": ".next/server/app/page_client-reference-manifest.js",
               ".next/server/app/login/page_client-reference-manifest.js": ".next/server/app/login/page_client-reference-manifest.js",
+              ".next/server/chunks/165.js": ".next/server/chunks/165.js",
+              ".next/server/app/page_client-reference-manifest.js": ".next/server/app/page_client-reference-manifest.js",
               ".next/server/app/profile/page_client-reference-manifest.js": ".next/server/app/profile/page_client-reference-manifest.js",
-              ".next/server/app/page.js": ".next/server/app/page.js",
               ".next/server/app/login/page.js": ".next/server/app/login/page.js",
+              ".next/server/app/page.js": ".next/server/app/page.js",
               ".next/server/app/profile/page.js": ".next/server/app/profile/page.js",
               ".next/server/pages/_app.js": ".next/server/pages/_app.js",
               ".next/server/pages/_error.js": ".next/server/pages/_error.js",
@@ -873,13 +873,13 @@
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/request-async-storage-instance.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/request-async-storage-instance.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/request-async-storage.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/request-async-storage.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js",
-              ".next/server/chunks/165.js": ".next/server/chunks/165.js",
               ".next/server/chunks/725.js": ".next/server/chunks/725.js",
-              ".next/server/app/page_client-reference-manifest.js": ".next/server/app/page_client-reference-manifest.js",
               ".next/server/app/login/page_client-reference-manifest.js": ".next/server/app/login/page_client-reference-manifest.js",
+              ".next/server/chunks/165.js": ".next/server/chunks/165.js",
+              ".next/server/app/page_client-reference-manifest.js": ".next/server/app/page_client-reference-manifest.js",
               ".next/server/app/profile/page_client-reference-manifest.js": ".next/server/app/profile/page_client-reference-manifest.js",
-              ".next/server/app/page.js": ".next/server/app/page.js",
               ".next/server/app/login/page.js": ".next/server/app/login/page.js",
+              ".next/server/app/page.js": ".next/server/app/page.js",
               ".next/server/app/profile/page.js": ".next/server/app/profile/page.js",
               ".next/server/pages/_app.js": ".next/server/pages/_app.js",
               ".next/server/pages/_error.js": ".next/server/pages/_error.js",
@@ -1033,13 +1033,13 @@
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/request-async-storage-instance.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/request-async-storage-instance.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/request-async-storage.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/request-async-storage.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js",
-              ".next/server/chunks/165.js": ".next/server/chunks/165.js",
               ".next/server/chunks/725.js": ".next/server/chunks/725.js",
-              ".next/server/app/page_client-reference-manifest.js": ".next/server/app/page_client-reference-manifest.js",
               ".next/server/app/login/page_client-reference-manifest.js": ".next/server/app/login/page_client-reference-manifest.js",
+              ".next/server/chunks/165.js": ".next/server/chunks/165.js",
+              ".next/server/app/page_client-reference-manifest.js": ".next/server/app/page_client-reference-manifest.js",
               ".next/server/app/profile/page_client-reference-manifest.js": ".next/server/app/profile/page_client-reference-manifest.js",
-              ".next/server/app/page.js": ".next/server/app/page.js",
               ".next/server/app/login/page.js": ".next/server/app/login/page.js",
+              ".next/server/app/page.js": ".next/server/app/page.js",
               ".next/server/app/profile/page.js": ".next/server/app/profile/page.js",
               ".next/server/pages/_app.js": ".next/server/pages/_app.js",
               ".next/server/pages/_error.js": ".next/server/pages/_error.js",
@@ -1433,14 +1433,14 @@
       "/_app.rsc.json",
       "/_document.rsc.json",
       "/_error.rsc.json",
-      "/_next/static/_pI3cdNQUCDsB36qKLYwV/_buildManifest.js",
-      "/_next/static/_pI3cdNQUCDsB36qKLYwV/_ssgManifest.js",
+      "/_next/static/1eeLgnVFdlFFSmjQO0oS1/_buildManifest.js",
+      "/_next/static/1eeLgnVFdlFFSmjQO0oS1/_ssgManifest.js",
       "/_next/static/chunks/353-caae7f117cd70a84.js",
       "/_next/static/chunks/842-ba0608a5d6e8e9e6.js",
       "/_next/static/chunks/94c12b52-4c98d7473d1a6bc4.js",
       "/_next/static/chunks/app/_not-found/page-5f597b38b23f03ec.js",
       "/_next/static/chunks/app/layout-ac599d87ba08dc62.js",
-      "/_next/static/chunks/app/login/page-c13f145d58c25111.js",
+      "/_next/static/chunks/app/login/page-4a8237049e594434.js",
       "/_next/static/chunks/app/page-05daab3ebed81d5d.js",
       "/_next/static/chunks/app/profile/page-5065af0cf1d3a397.js",
       "/_next/static/chunks/framework-6e06c675866dc992.js",
@@ -1450,7 +1450,7 @@
       "/_next/static/chunks/pages/_error-b22341a88093580b.js",
       "/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js",
       "/_next/static/chunks/webpack-ca468caf083401cb.js",
-      "/_next/static/css/50571f4db988c80b.css",
+      "/_next/static/css/7e19d280d85533df.css",
       "/_next/static/media/19cfc7226ec3afaa-s.woff2",
       "/_next/static/media/21350d82a1f187e9-s.woff2",
       "/_next/static/media/8e9860b6e62d6359-s.woff2",
@@ -1672,7 +1672,7 @@
         "2791": {
           "consumers": 1,
           "inlined": true,
-          "byteLength": 2114,
+          "byteLength": 2090,
           "consumersList": [
             "/api/auth/google/callback.func/index.js"
           ]
@@ -1752,7 +1752,7 @@
         "4529": {
           "consumers": 1,
           "inlined": true,
-          "byteLength": 1250,
+          "byteLength": 1213,
           "consumersList": [
             "/api/auth/google.func/index.js"
           ]
@@ -1868,7 +1868,7 @@
         "6107": {
           "consumers": 1,
           "inlined": true,
-          "byteLength": 1746,
+          "byteLength": 1268,
           "consumersList": [
             "/api/auth.func/index.js"
           ]
