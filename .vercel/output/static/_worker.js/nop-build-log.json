@@ -1,5 +1,5 @@
 {
-  "timestamp": 1774885740153,
+  "timestamp": 1774886215923,
   "outputDir": ".vercel/output/static/_worker.js",
   "versions": {
     "@cloudflare/next-on-pages": "1.13.16"
@@ -76,6 +76,28 @@
           "outputByteSize": 9703
         },
         {
+          "relativePath": "/api/debug.func",
+          "config": {
+            "runtime": "edge",
+            "name": "api/debug",
+            "deploymentTarget": "v8-worker",
+            "entrypoint": "index.js",
+            "assets": [],
+            "framework": {
+              "slug": "nextjs",
+              "version": "14.2.5"
+            }
+          },
+          "route": {
+            "path": "/api/debug",
+            "overrides": [
+              "/api/debug.rsc"
+            ]
+          },
+          "outputPath": "__next-on-pages-dist__/functions/api/debug.func.js",
+          "outputByteSize": 9795
+        },
+        {
           "relativePath": "/api/remove-bg.func",
           "config": {
             "runtime": "edge",
@@ -137,15 +159,15 @@
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/constants.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/web/utils.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/web/utils.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router-headers.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router-headers.js",
-              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js",
+              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/styled-jsx": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/styled-jsx",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@swc/helpers": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@swc/helpers",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/modern-browserslist-target.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/modern-browserslist-target.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage-instance.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage-instance.js",
-              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/runtime-config.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/runtime-config.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/ws/package.json": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/ws/package.json",
+              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/runtime-config.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/runtime-config.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/node-html-parser/package.json": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/node-html-parser/package.json",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/lru-cache/package.json": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/lru-cache/package.json",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/jsonwebtoken/package.json": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/jsonwebtoken/package.json",
@@ -299,15 +321,15 @@
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/constants.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/web/utils.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/web/utils.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router-headers.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router-headers.js",
-              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js",
+              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/styled-jsx": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/styled-jsx",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@swc/helpers": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@swc/helpers",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/modern-browserslist-target.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/modern-browserslist-target.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage-instance.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage-instance.js",
-              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/runtime-config.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/runtime-config.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/ws/package.json": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/ws/package.json",
+              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/runtime-config.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/runtime-config.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/node-html-parser/package.json": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/node-html-parser/package.json",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/lru-cache/package.json": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/lru-cache/package.json",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/jsonwebtoken/package.json": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/jsonwebtoken/package.json",
@@ -458,15 +480,15 @@
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/constants.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/web/utils.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/web/utils.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router-headers.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router-headers.js",
-              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js",
+              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/styled-jsx": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/styled-jsx",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@swc/helpers": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@swc/helpers",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/modern-browserslist-target.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/modern-browserslist-target.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage-instance.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage-instance.js",
-              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/runtime-config.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/runtime-config.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/ws/package.json": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/ws/package.json",
+              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/runtime-config.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/runtime-config.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/node-html-parser/package.json": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/node-html-parser/package.json",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/lru-cache/package.json": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/lru-cache/package.json",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/jsonwebtoken/package.json": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/jsonwebtoken/package.json",
@@ -618,15 +640,15 @@
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/constants.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/web/utils.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/web/utils.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router-headers.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router-headers.js",
-              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js",
+              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/styled-jsx": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/styled-jsx",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@swc/helpers": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@swc/helpers",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/modern-browserslist-target.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/modern-browserslist-target.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage-instance.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage-instance.js",
-              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/runtime-config.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/runtime-config.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/ws/package.json": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/ws/package.json",
+              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/runtime-config.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/runtime-config.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/node-html-parser/package.json": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/node-html-parser/package.json",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/lru-cache/package.json": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/lru-cache/package.json",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/jsonwebtoken/package.json": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/jsonwebtoken/package.json",
@@ -777,15 +799,15 @@
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/constants.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/web/utils.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/web/utils.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router-headers.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router-headers.js",
-              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js",
+              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/styled-jsx": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/styled-jsx",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@swc/helpers": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@swc/helpers",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/modern-browserslist-target.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/modern-browserslist-target.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage-instance.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage-instance.js",
-              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/runtime-config.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/runtime-config.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/ws/package.json": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/ws/package.json",
+              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/runtime-config.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/runtime-config.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/node-html-parser/package.json": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/node-html-parser/package.json",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/lru-cache/package.json": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/lru-cache/package.json",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/jsonwebtoken/package.json": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/jsonwebtoken/package.json",
@@ -937,15 +959,15 @@
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/constants.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/web/utils.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/web/utils.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router-headers.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router-headers.js",
-              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js",
+              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/styled-jsx": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/styled-jsx",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@swc/helpers": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@swc/helpers",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/modern-browserslist-target.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/modern-browserslist-target.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage-instance.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage-instance.js",
-              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/runtime-config.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/runtime-config.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/ws/package.json": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/ws/package.json",
+              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/runtime-config.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/runtime-config.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/node-html-parser/package.json": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/node-html-parser/package.json",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/lru-cache/package.json": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/lru-cache/package.json",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/jsonwebtoken/package.json": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/jsonwebtoken/package.json",
@@ -1119,6 +1141,25 @@
         },
         {
           "reason": "unnecessary rsc function",
+          "relativePath": "/api/debug.rsc.func",
+          "config": {
+            "runtime": "edge",
+            "name": "api/debug",
+            "deploymentTarget": "v8-worker",
+            "entrypoint": "index.js",
+            "assets": [],
+            "framework": {
+              "slug": "nextjs",
+              "version": "14.2.5"
+            }
+          },
+          "route": {
+            "path": "/api/debug.rsc",
+            "overrides": []
+          }
+        },
+        {
+          "reason": "unnecessary rsc function",
           "relativePath": "/api/remove-bg.rsc.func",
           "config": {
             "runtime": "edge",
@@ -1175,15 +1216,15 @@
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/constants.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/web/utils.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/web/utils.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router-headers.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router-headers.js",
-              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js",
+              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/styled-jsx": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/styled-jsx",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@swc/helpers": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@swc/helpers",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/modern-browserslist-target.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/modern-browserslist-target.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage-instance.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage-instance.js",
-              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/runtime-config.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/runtime-config.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/ws/package.json": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/ws/package.json",
+              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/runtime-config.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/runtime-config.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/node-html-parser/package.json": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/node-html-parser/package.json",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/lru-cache/package.json": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/lru-cache/package.json",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/jsonwebtoken/package.json": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/jsonwebtoken/package.json",
@@ -1319,15 +1360,15 @@
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/constants.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/web/utils.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/web/utils.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router-headers.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router-headers.js",
-              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js",
+              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/styled-jsx": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/styled-jsx",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@swc/helpers": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@swc/helpers",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/modern-browserslist-target.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/modern-browserslist-target.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage-instance.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage-instance.js",
-              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/runtime-config.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/runtime-config.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/ws/package.json": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/ws/package.json",
+              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/runtime-config.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/runtime-config.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/node-html-parser/package.json": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/node-html-parser/package.json",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/lru-cache/package.json": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/lru-cache/package.json",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/jsonwebtoken/package.json": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/jsonwebtoken/package.json",
@@ -1433,8 +1474,8 @@
       "/_app.rsc.json",
       "/_document.rsc.json",
       "/_error.rsc.json",
-      "/_next/static/-_KyjozqVkvlwYWqQxUK3/_buildManifest.js",
-      "/_next/static/-_KyjozqVkvlwYWqQxUK3/_ssgManifest.js",
+      "/_next/static/EmtuZY1-QkPw0pJ8WXSyr/_buildManifest.js",
+      "/_next/static/EmtuZY1-QkPw0pJ8WXSyr/_ssgManifest.js",
       "/_next/static/chunks/353-caae7f117cd70a84.js",
       "/_next/static/chunks/842-ba0608a5d6e8e9e6.js",
       "/_next/static/chunks/94c12b52-4c98d7473d1a6bc4.js",
@@ -1444,13 +1485,13 @@
       "/_next/static/chunks/app/page-05daab3ebed81d5d.js",
       "/_next/static/chunks/app/profile/page-5065af0cf1d3a397.js",
       "/_next/static/chunks/framework-6e06c675866dc992.js",
-      "/_next/static/chunks/main-18426b18da8709bf.js",
+      "/_next/static/chunks/main-0a350e55181cb54f.js",
       "/_next/static/chunks/main-app-6d941f1e05e0f699.js",
       "/_next/static/chunks/pages/_app-99c0d13304396e92.js",
       "/_next/static/chunks/pages/_error-b22341a88093580b.js",
       "/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js",
       "/_next/static/chunks/webpack-ca468caf083401cb.js",
-      "/_next/static/css/7e19d280d85533df.css",
+      "/_next/static/css/3ebc3a34efc7b223.css",
       "/_next/static/media/19cfc7226ec3afaa-s.woff2",
       "/_next/static/media/21350d82a1f187e9-s.woff2",
       "/_next/static/media/8e9860b6e62d6359-s.woff2",
@@ -1464,7 +1505,7 @@
       "wasm": {},
       "manifest": {
         "__BUILD_MANIFEST": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "27d10e462fba646daaa29468a0656e12",
           "newDest": "__next-on-pages-dist__/manifest/27d10e462fba646daaa29468a0656e12.js",
           "byteLength": 867,
@@ -1472,11 +1513,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "__REACT_LOADABLE_MANIFEST": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "27d10e462fba646daaa29468a0656e12",
           "newDest": "__next-on-pages-dist__/manifest/27d10e462fba646daaa29468a0656e12.js",
           "byteLength": 89,
@@ -1484,11 +1526,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "__NEXT_FONT_MANIFEST": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "27d10e462fba646daaa29468a0656e12",
           "newDest": "__next-on-pages-dist__/manifest/27d10e462fba646daaa29468a0656e12.js",
           "byteLength": 273,
@@ -1496,13 +1539,22 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         }
       },
       "webpack": {
+        "108": {
+          "consumers": 1,
+          "inlined": true,
+          "byteLength": 1181,
+          "consumersList": [
+            "/api/debug.func/index.js"
+          ]
+        },
         "128": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 261,
@@ -1510,11 +1562,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "130": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 67,
@@ -1522,11 +1575,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "195": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 155,
@@ -1534,11 +1588,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "440": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 1887,
@@ -1546,11 +1601,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "1012": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 91,
@@ -1558,11 +1614,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "1058": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 422,
@@ -1570,11 +1627,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "1550": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 1474,
@@ -1582,11 +1640,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "1701": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 1710,
@@ -1594,11 +1653,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "1728": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 170,
@@ -1606,11 +1666,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "1876": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 3925,
@@ -1618,11 +1679,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "2067": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 95,
@@ -1630,11 +1692,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "2072": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 1032,
@@ -1642,22 +1705,24 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "2329": {
-          "consumers": 3,
+          "consumers": 4,
           "groupedPath": "75a2fdc134802a10eddc660d97397a85",
           "newDest": "__next-on-pages-dist__/webpack/75a2fdc134802a10eddc660d97397a85.js",
           "byteLength": 46,
           "consumersList": [
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "2481": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 322,
@@ -1665,11 +1730,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "2755": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 126,
@@ -1677,6 +1743,7 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
@@ -1689,7 +1756,7 @@
           ]
         },
         "2921": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 81,
@@ -1697,11 +1764,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "3525": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 196,
@@ -1709,11 +1777,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "4103": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 2253,
@@ -1721,11 +1790,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "4183": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 10693,
@@ -1733,11 +1803,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "4259": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 1827,
@@ -1745,11 +1816,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "4390": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 81,
@@ -1757,6 +1829,7 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
@@ -1769,7 +1842,7 @@
           ]
         },
         "4545": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 370,
@@ -1777,11 +1850,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "4641": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 328,
@@ -1789,11 +1863,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "4802": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 779,
@@ -1801,11 +1876,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "5158": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 1387,
@@ -1813,11 +1889,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "5522": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 1827,
@@ -1825,22 +1902,24 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "5596": {
-          "consumers": 3,
+          "consumers": 4,
           "groupedPath": "75a2fdc134802a10eddc660d97397a85",
           "newDest": "__next-on-pages-dist__/webpack/75a2fdc134802a10eddc660d97397a85.js",
           "byteLength": 2422,
           "consumersList": [
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "5714": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 81,
@@ -1848,11 +1927,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "5988": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 1661,
@@ -1860,11 +1940,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "6005": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 564,
@@ -1872,11 +1953,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "6025": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 16865,
@@ -1884,6 +1966,7 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
@@ -1896,7 +1979,7 @@
           ]
         },
         "6195": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 90,
@@ -1904,11 +1987,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "6483": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 24501,
@@ -1916,11 +2000,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "6613": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 102,
@@ -1928,11 +2013,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "6618": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 2707,
@@ -1940,11 +2026,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "6779": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 1922,
@@ -1952,11 +2039,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "6859": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 4999,
@@ -1964,11 +2052,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "6894": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 33654,
@@ -1976,11 +2065,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "7093": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 1131,
@@ -1988,11 +2078,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "7313": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 5599,
@@ -2000,6 +2091,7 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
@@ -2012,7 +2104,7 @@
           ]
         },
         "7466": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 4382,
@@ -2020,11 +2112,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "7486": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 7038,
@@ -2032,11 +2125,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "7501": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 1748,
@@ -2044,11 +2138,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "7676": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 102,
@@ -2056,11 +2151,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "8368": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 18170,
@@ -2068,11 +2164,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "8436": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 133,
@@ -2080,11 +2177,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "8522": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 8428,
@@ -2092,11 +2190,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "8755": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 4224,
@@ -2104,11 +2203,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "8849": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 127,
@@ -2116,11 +2216,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "8968": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 192,
@@ -2128,11 +2229,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "8987": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 4895,
@@ -2140,11 +2242,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "9028": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 7763,
@@ -2152,11 +2255,12 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         },
         "9372": {
-          "consumers": 4,
+          "consumers": 5,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
           "newDest": "__next-on-pages-dist__/webpack/2b80e41aee68975af754a6ff242ba052.js",
           "byteLength": 1138,
@@ -2164,6 +2268,7 @@
             "/api/auth.func/index.js",
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
+            "/api/debug.func/index.js",
             "/api/remove-bg.func/index.js"
           ]
         }
