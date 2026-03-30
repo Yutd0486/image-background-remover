@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 import Header from '@/components/Header'
 import UploadZone from '@/components/UploadZone'
 import PreviewArea from '@/components/PreviewArea'
@@ -16,7 +16,12 @@ export interface ImageState {
   resultBlob: Blob | null
 }
 
-const ADMIN_PASSWORD = 'bgremover2024'
+export interface User {
+  email?: string
+  name?: string
+  picture?: string
+  loginMethod?: string
+}
 
 export default function Home() {
   const [imageState, setImageState] = useState<ImageState>({
@@ -26,11 +31,30 @@ export default function Home() {
   const [errorMessage, setErrorMessage] = useState('')
   const [bgColor, setBgColor] = useState('transparent')
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null)
+  const [user, setUser] = useState<User | null>(null)
+  const [showLoginPrompt, setShowLoginPrompt] = useState(false)
+  const checkedAuth = useRef(false)
 
-  // Check auth on mount
+  // Check auth on mount via cookie
   useEffect(() => {
-    const auth = localStorage.getItem('auth')
-    setIsAuthenticated(auth === ADMIN_PASSWORD)
+    if (checkedAuth.current) return
+    checkedAuth.current = true
+
+    fetch('/api/auth', { credentials: 'include' })
+      .then(res => {
+        if (res.ok) return res.json()
+        throw new Error('Not authenticated')
+      })
+      .then(data => {
+        setIsAuthenticated(true)
+        setUser(data.user || null)
+        setShowLoginPrompt(false)
+      })
+      .catch(() => {
+        setIsAuthenticated(false)
+        setUser(null)
+        setShowLoginPrompt(true)
+      })
   }, [])
 
   const handleFileSelect = useCallback((file: File) => {
@@ -49,35 +73,33 @@ export default function Home() {
     try {
       const formData = new FormData()
       formData.append('image_file', imageState.originalFile)
-      formData.append('size', 'auto')
 
-      const response = await fetch('https://api.remove.bg/v1.0/removebg', {
+      const response = await fetch('/api/remove-bg', {
         method: 'POST',
-        headers: { 'X-Api-Key': 'TffPiX3v3QJDMuxdWkLd3WA3' },
         body: formData,
+        credentials: 'include',
       })
 
       if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}))
-        throw new Error(errorData.errors?.[0]?.title || `Error (${response.status})`)
+        const data = await response.json().catch(() => ({}))
+        if (response.status === 401) {
+          setIsAuthenticated(false)
+          setShowLoginPrompt(true)
+          setProcessingState('idle')
+          return
+        }
+        throw new Error(data.error || `Server error: ${response.status}`)
       }
 
       const blob = await response.blob()
-      setImageState(prev => ({ ...prev, resultUrl: URL.createObjectURL(blob), resultBlob: blob }))
+      const resultUrl = URL.createObjectURL(blob)
+      setImageState(prev => ({ ...prev, resultUrl, resultBlob: blob }))
       setProcessingState('done')
     } catch (err) {
-      setErrorMessage(err instanceof Error ? err.message : 'Error')
+      setErrorMessage(err instanceof Error ? err.message : 'Unknown error')
       setProcessingState('error')
     }
   }, [imageState.originalFile])
-
-  const handleDownload = useCallback(() => {
-    if (!imageState.resultBlob || !imageState.originalFile) return
-    const link = document.createElement('a')
-    link.href = URL.createObjectURL(imageState.resultBlob)
-    link.download = `removed-bg-${imageState.originalFile.name.replace(/\.[^.]+$/, '')}.png`
-    link.click()
-  }, [imageState.resultBlob, imageState.originalFile])
 
   const handleReset = useCallback(() => {
     if (imageState.originalUrl) URL.revokeObjectURL(imageState.originalUrl)
@@ -85,67 +107,85 @@ export default function Home() {
     setImageState({ originalFile: null, originalUrl: null, resultUrl: null, resultBlob: null })
     setProcessingState('idle')
     setErrorMessage('')
-    setBgColor('transparent')
   }, [imageState.originalUrl, imageState.resultUrl])
 
-  // Show loading
-  if (isAuthenticated === null) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-      </div>
-    )
-  }
+  const handleDownload = useCallback(() => {
+    if (!imageState.resultBlob) return
+    const a = document.createElement('a')
+    a.href = URL.createObjectURL(imageState.resultBlob)
+    a.download = `${imageState.originalFile?.name?.replace(/\.[^.]+$/, '') || 'image'}_no_bg.png`
+    a.click()
+  }, [imageState.resultBlob, imageState.originalFile])
 
-  // Show login prompt
-  if (!isAuthenticated) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
-        <div className="text-center">
-          <div className="text-6xl mb-4">🔒</div>
-          <h1 className="text-2xl font-bold mb-2">BG Remover</h1>
-          <p className="text-gray-500 mb-6">This tool is password protected</p>
-          <a href="/login/" className="bg-gradient-to-r from-purple-600 to-blue-500 text-white font-semibold px-6 py-3 rounded-lg inline-block">
-            Enter Password
-          </a>
-        </div>
-      </div>
-    )
-  }
-
-  const showPreview = !!imageState.originalUrl
-  const showResult = !!imageState.resultUrl
+  const showPreview = imageState.originalUrl !== null
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-50 to-white">
+    <div className="min-h-screen bg-gray-50 flex flex-col">
       <Header />
-      <main className="flex-1 max-w-5xl mx-auto px-4 py-10">
-        {!showPreview && (
-          <div className="text-center mb-10">
-            <h2 className="text-4xl font-bold text-gray-900 mb-3">Remove backgrounds in <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-500">seconds</span></h2>
-            <p className="text-gray-500 text-lg">Upload an image and get a clean transparent PNG instantly</p>
+      <main className="flex-1 max-w-5xl mx-auto w-full px-4 py-10">
+
+        {/* Login prompt banner */}
+        {showLoginPrompt && (
+          <div className="mb-6 p-4 bg-amber-50 border border-amber-200 rounded-xl flex items-center justify-between">
+            <div className="flex items-center gap-2 text-amber-800">
+              <span>🔒</span>
+              <span className="text-sm font-medium">Sign in to remove backgrounds</span>
+            </div>
+            <a href="/login" className="text-sm font-semibold text-amber-700 hover:text-amber-900 underline">
+              Sign In
+            </a>
           </div>
         )}
 
-        {!showPreview && <UploadZone onFileSelect={handleFileSelect} />}
+        {/* Welcome message */}
+        {isAuthenticated && user && (
+          <div className="mb-6 text-sm text-gray-500">
+            Welcome back, <span className="font-medium text-gray-700">{user.name || user.email}</span>!
+          </div>
+        )}
+
+        <div className="text-center mb-10">
+          <h1 className="text-4xl font-extrabold text-gray-900 mb-3">
+            Remove Image Background
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-500"> Instantly</span>
+          </h1>
+          <p className="text-gray-500 text-lg">Upload any image and AI will remove the background in seconds</p>
+        </div>
+
+        {!showPreview && (
+          <UploadZone
+            onFileSelect={handleFileSelect}
+          />
+        )}
 
         {showPreview && (
           <div className="space-y-6">
-            <PreviewArea originalUrl={imageState.originalUrl!} resultUrl={imageState.resultUrl} originalFileName={imageState.originalFile?.name || ''} processingState={processingState} bgColor={bgColor} />
-            
-            {processingState === 'error' && (
-              <div className="rounded-xl border border-red-200 bg-red-50 p-4 text-red-700">{errorMessage}</div>
+            <PreviewArea
+              originalUrl={imageState.originalUrl!}
+              resultUrl={imageState.resultUrl}
+              originalFileName={imageState.originalFile?.name || 'image'}
+              processingState={processingState}
+              bgColor={bgColor}
+            />
+
+            {processingState === 'idle' && imageState.originalUrl && !imageState.resultUrl && (
+              <div className="flex justify-center">
+                <button
+                  onClick={handleRemoveBg}
+                  disabled={!isAuthenticated}
+                  className="bg-gradient-to-r from-purple-600 to-blue-500 text-white font-semibold px-10 py-4 rounded-xl text-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  ✨ Remove Background
+                </button>
+              </div>
             )}
 
-            {showResult && <BackgroundPicker selectedColor={bgColor} onColorChange={setBgColor} />}
+            {processingState === 'done' && imageState.resultUrl && (
+              <BackgroundPicker selectedColor={bgColor} onColorChange={setBgColor} />
+            )}
 
-            <div className="flex flex-wrap justify-center gap-3">
-              {!showResult && (
-                <button onClick={handleRemoveBg} disabled={processingState === 'processing'} className="bg-gradient-to-r from-purple-600 to-blue-500 text-white font-semibold px-8 py-3.5 rounded-xl disabled:opacity-60">
-                  {processingState === 'processing' ? 'Processing...' : '✨ Remove Background'}
-                </button>
-              )}
-              {showResult && (
+            <div className="flex justify-center gap-4">
+              {processingState === 'done' && (
                 <button onClick={handleDownload} className="bg-gradient-to-r from-purple-600 to-blue-500 text-white font-semibold px-8 py-3.5 rounded-xl">
                   ⬇️ Download PNG
                 </button>

@@ -12,10 +12,15 @@ export default function ProfilePage() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Check authentication using localStorage
-    const auth = localStorage.getItem('auth')
-    setIsAuthenticated(auth === 'bgremover2024')
-    setLoading(false)
+    fetch('/api/auth', { credentials: 'include' })
+      .then(res => {
+        setIsAuthenticated(res.ok)
+        setLoading(false)
+      })
+      .catch(() => {
+        setIsAuthenticated(false)
+        setLoading(false)
+      })
   }, [])
 
   if (loading) {
