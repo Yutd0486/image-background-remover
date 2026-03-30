@@ -12,16 +12,10 @@ export default function ProfilePage() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Check authentication using the project's existing auth system
-    fetch('/api/auth')
-      .then(res => {
-        setIsAuthenticated(res.ok)
-        setLoading(false)
-      })
-      .catch(() => {
-        setIsAuthenticated(false)
-        setLoading(false)
-      })
+    // Check authentication using localStorage
+    const auth = localStorage.getItem('auth')
+    setIsAuthenticated(auth === 'bgremover2024')
+    setLoading(false)
   }, [])
 
   if (loading) {
@@ -37,7 +31,7 @@ export default function ProfilePage() {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h2 className="text-xl font-bold mb-4">请先登录</h2>
-          <Link href="/login" className="text-blue-600 hover:underline">
+          <Link href="/login/" className="text-blue-600 hover:underline">
             去登录
           </Link>
         </div>

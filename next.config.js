@@ -4,11 +4,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  experimental: {
-    serverActions: {
-      bodySizeLimit: '2mb',
-    },
-  },
+  trailingSlash: true,
 }
 
 module.exports = nextConfig

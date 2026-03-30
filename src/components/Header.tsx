@@ -3,36 +3,18 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
-export interface User {
-  email?: string
-  name?: string
-  picture?: string
-  loginMethod?: string
-}
+const ADMIN_PASSWORD = 'bgremover2024'
 
-interface HeaderProps {
-  user?: User | null
-}
-
-export default function Header({ user }: HeaderProps) {
-  const [loggingOut, setLoggingOut] = useState(false)
+export default function Header() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
 
   useEffect(() => {
-    fetch('/api/auth', { credentials: 'include' })
-      .then(res => setIsAuthenticated(res.ok))
-      .catch(() => setIsAuthenticated(false))
+    setIsAuthenticated(localStorage.getItem('auth') === ADMIN_PASSWORD)
   }, [])
 
-  const handleLogout = async () => {
-    setLoggingOut(true)
-    await fetch('/api/auth', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ action: 'logout' }),
-      credentials: 'include',
-    })
-    window.location.href = '/login'
+  const handleLogout = () => {
+    localStorage.removeItem('auth')
+    window.location.href = '/login/'
   }
 
   return (
@@ -48,25 +30,14 @@ export default function Header({ user }: HeaderProps) {
         <div className="flex items-center gap-3">
           {isAuthenticated && (
             <>
-              {user?.picture && (
-                <img 
-                  src={user.picture} 
-                  alt={user.name || 'User'} 
-                  className="w-8 h-8 rounded-full"
-                />
-              )}
-              {user?.name && (
-                <span className="text-sm font-medium text-gray-700">{user.name}</span>
-              )}
-              <Link href="/profile" className="text-sm font-medium text-gray-600 hover:text-gray-900">
+              <Link href="/profile/" className="text-sm font-medium text-gray-600 hover:text-gray-900">
                 Profile
               </Link>
               <button
                 onClick={handleLogout}
-                disabled={loggingOut}
                 className="text-sm font-medium text-gray-600 hover:text-gray-900"
               >
-                {loggingOut ? '...' : 'Logout'}
+                Logout
               </button>
             </>
           )}

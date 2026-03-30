@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useCallback, useEffect, useRef } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import Header from '@/components/Header'
 import UploadZone from '@/components/UploadZone'
 import PreviewArea from '@/components/PreviewArea'
@@ -16,12 +16,7 @@ export interface ImageState {
   resultBlob: Blob | null
 }
 
-export interface User {
-  email?: string
-  name?: string
-  picture?: string
-  loginMethod?: string
-}
+const ADMIN_PASSWORD = 'bgremover2024'
 
 export default function Home() {
   const [imageState, setImageState] = useState<ImageState>({
@@ -31,32 +26,11 @@ export default function Home() {
   const [errorMessage, setErrorMessage] = useState('')
   const [bgColor, setBgColor] = useState('transparent')
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null)
-  const [user, setUser] = useState<User | null>(null)
-  const [showLoginPrompt, setShowLoginPrompt] = useState(false)
-  const checkedAuth = useRef(false)
 
-  // Check auth on mount - 支持 Google OAuth session 和密码认证
+  // Check auth on mount
   useEffect(() => {
-    if (checkedAuth.current) return
-    checkedAuth.current = true
-    
-    fetch('/api/auth', { credentials: 'include' })
-      .then(res => {
-        if (res.ok) {
-          return res.json()
-        }
-        throw new Error('Not authenticated')
-      })
-      .then(data => {
-        setIsAuthenticated(true)
-        setUser(data.user || null)
-        setShowLoginPrompt(false)
-      })
-      .catch(() => {
-        setIsAuthenticated(false)
-        setUser(null)
-        setShowLoginPrompt(true)
-      })
+    const auth = localStorage.getItem('auth')
+    setIsAuthenticated(auth === ADMIN_PASSWORD)
   }, [])
 
   const handleFileSelect = useCallback((file: File) => {
@@ -75,11 +49,17 @@ export default function Home() {
     try {
       const formData = new FormData()
       formData.append('image_file', imageState.originalFile)
-      const response = await fetch('/api/remove-bg', { method: 'POST', body: formData })
+      formData.append('size', 'auto')
+
+      const response = await fetch('https://api.remove.bg/v1.0/removebg', {
+        method: 'POST',
+        headers: { 'X-Api-Key': 'TffPiX3v3QJDMuxdWkLd3WA3' },
+        body: formData,
+      })
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}))
-        throw new Error(errorData.error || `Error (${response.status})`)
+        throw new Error(errorData.errors?.[0]?.title || `Error (${response.status})`)
       }
 
       const blob = await response.blob()
@@ -118,15 +98,15 @@ export default function Home() {
   }
 
   // Show login prompt
-  if (showLoginPrompt || isAuthenticated === false) {
+  if (!isAuthenticated) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
         <div className="text-center">
           <div className="text-6xl mb-4">🔒</div>
           <h1 className="text-2xl font-bold mb-2">BG Remover</h1>
-          <p className="text-gray-500 mb-6">Please sign in to use this tool</p>
-          <a href="/login" className="bg-gradient-to-r from-purple-600 to-blue-500 text-white font-semibold px-6 py-3 rounded-lg inline-block">
-            Sign In
+          <p className="text-gray-500 mb-6">This tool is password protected</p>
+          <a href="/login/" className="bg-gradient-to-r from-purple-600 to-blue-500 text-white font-semibold px-6 py-3 rounded-lg inline-block">
+            Enter Password
           </a>
         </div>
       </div>
@@ -138,7 +118,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-50 to-white">
-      <Header user={user} />
+      <Header />
       <main className="flex-1 max-w-5xl mx-auto px-4 py-10">
         {!showPreview && (
           <div className="text-center mb-10">
