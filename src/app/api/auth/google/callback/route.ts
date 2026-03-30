@@ -1,20 +1,22 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { getRequestContext } from '@cloudflare/next-on-pages'
 
 export const runtime = 'edge'
 
 export async function GET(request: NextRequest) {
+  const ctx = getRequestContext()
+  const clientId = ctx.env.GOOGLE_CLIENT_ID as string
+  const clientSecret = ctx.env.GOOGLE_CLIENT_SECRET as string
+  const baseUrl = (ctx.env.NEXT_PUBLIC_BASE_URL as string) || `https://${request.headers.get('host')}`
+
   const { searchParams } = new URL(request.url)
   const code = searchParams.get('code')
   const error = searchParams.get('error')
-
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || `https://${request.headers.get('host')}`
 
   if (error || !code) {
     return NextResponse.redirect(`${baseUrl}/login?error=${error || 'no_code'}`)
   }
 
-  const clientId = process.env.GOOGLE_CLIENT_ID!
-  const clientSecret = process.env.GOOGLE_CLIENT_SECRET!
   const redirectUri = `${baseUrl}/api/auth/google/callback`
 
   try {
@@ -61,7 +63,7 @@ export async function GET(request: NextRequest) {
       httpOnly: true,
       secure: true,
       sameSite: 'lax',
-      maxAge: 60 * 60 * 24 * 7, // 7 days
+      maxAge: 60 * 60 * 24 * 7,
       path: '/'
     })
 

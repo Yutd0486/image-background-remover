@@ -1,5 +1,5 @@
 {
-  "timestamp": 1774884783877,
+  "timestamp": 1774885740153,
   "outputDir": ".vercel/output/static/_worker.js",
   "versions": {
     "@cloudflare/next-on-pages": "1.13.16"
@@ -29,7 +29,7 @@
             ]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/auth/google/callback.func.js",
-          "outputByteSize": 10580
+          "outputByteSize": 10815
         },
         {
           "relativePath": "/api/auth/google.func",
@@ -51,7 +51,7 @@
             ]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/auth/google.func.js",
-          "outputByteSize": 9672
+          "outputByteSize": 9918
         },
         {
           "relativePath": "/api/auth.func",
@@ -95,7 +95,7 @@
             ]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/remove-bg.func.js",
-          "outputByteSize": 10155
+          "outputByteSize": 10362
         }
       ],
       "prerendered": [
@@ -123,8 +123,8 @@
               "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/styled-jsx/package.json": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/styled-jsx/package.json",
               "node_modules/.pnpm/react@18.3.1/node_modules/react/package.json": "node_modules/.pnpm/react@18.3.1/node_modules/react/package.json",
               "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/styled-jsx/dist/index/index.js": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/styled-jsx/dist/index/index.js",
-              "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/react": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/react",
               "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/client-only": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/client-only",
+              "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/react": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/react",
               "node_modules/.pnpm/react@18.3.1/node_modules/react/index.js": "node_modules/.pnpm/react@18.3.1/node_modules/react/index.js",
               "node_modules/.pnpm/react@18.3.1/node_modules/react/cjs/react.production.min.js": "node_modules/.pnpm/react@18.3.1/node_modules/react/cjs/react.production.min.js",
               "node_modules/.pnpm/client-only@0.0.1/node_modules/client-only/package.json": "node_modules/.pnpm/client-only@0.0.1/node_modules/client-only/package.json",
@@ -137,8 +137,8 @@
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/constants.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/web/utils.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/web/utils.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router-headers.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router-headers.js",
-              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js",
+              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/styled-jsx": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/styled-jsx",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@swc/helpers": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@swc/helpers",
@@ -285,8 +285,8 @@
               "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/styled-jsx/package.json": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/styled-jsx/package.json",
               "node_modules/.pnpm/react@18.3.1/node_modules/react/package.json": "node_modules/.pnpm/react@18.3.1/node_modules/react/package.json",
               "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/styled-jsx/dist/index/index.js": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/styled-jsx/dist/index/index.js",
-              "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/react": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/react",
               "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/client-only": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/client-only",
+              "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/react": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/react",
               "node_modules/.pnpm/react@18.3.1/node_modules/react/index.js": "node_modules/.pnpm/react@18.3.1/node_modules/react/index.js",
               "node_modules/.pnpm/react@18.3.1/node_modules/react/cjs/react.production.min.js": "node_modules/.pnpm/react@18.3.1/node_modules/react/cjs/react.production.min.js",
               "node_modules/.pnpm/client-only@0.0.1/node_modules/client-only/package.json": "node_modules/.pnpm/client-only@0.0.1/node_modules/client-only/package.json",
@@ -299,8 +299,8 @@
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/constants.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/web/utils.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/web/utils.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router-headers.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router-headers.js",
-              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js",
+              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/styled-jsx": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/styled-jsx",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@swc/helpers": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@swc/helpers",
@@ -444,8 +444,8 @@
               "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/styled-jsx/package.json": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/styled-jsx/package.json",
               "node_modules/.pnpm/react@18.3.1/node_modules/react/package.json": "node_modules/.pnpm/react@18.3.1/node_modules/react/package.json",
               "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/styled-jsx/dist/index/index.js": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/styled-jsx/dist/index/index.js",
-              "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/react": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/react",
               "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/client-only": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/client-only",
+              "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/react": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/react",
               "node_modules/.pnpm/react@18.3.1/node_modules/react/index.js": "node_modules/.pnpm/react@18.3.1/node_modules/react/index.js",
               "node_modules/.pnpm/react@18.3.1/node_modules/react/cjs/react.production.min.js": "node_modules/.pnpm/react@18.3.1/node_modules/react/cjs/react.production.min.js",
               "node_modules/.pnpm/client-only@0.0.1/node_modules/client-only/package.json": "node_modules/.pnpm/client-only@0.0.1/node_modules/client-only/package.json",
@@ -458,8 +458,8 @@
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/constants.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/web/utils.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/web/utils.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router-headers.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router-headers.js",
-              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js",
+              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/styled-jsx": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/styled-jsx",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@swc/helpers": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@swc/helpers",
@@ -604,8 +604,8 @@
               "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/styled-jsx/package.json": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/styled-jsx/package.json",
               "node_modules/.pnpm/react@18.3.1/node_modules/react/package.json": "node_modules/.pnpm/react@18.3.1/node_modules/react/package.json",
               "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/styled-jsx/dist/index/index.js": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/styled-jsx/dist/index/index.js",
-              "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/react": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/react",
               "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/client-only": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/client-only",
+              "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/react": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/react",
               "node_modules/.pnpm/react@18.3.1/node_modules/react/index.js": "node_modules/.pnpm/react@18.3.1/node_modules/react/index.js",
               "node_modules/.pnpm/react@18.3.1/node_modules/react/cjs/react.production.min.js": "node_modules/.pnpm/react@18.3.1/node_modules/react/cjs/react.production.min.js",
               "node_modules/.pnpm/client-only@0.0.1/node_modules/client-only/package.json": "node_modules/.pnpm/client-only@0.0.1/node_modules/client-only/package.json",
@@ -618,8 +618,8 @@
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/constants.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/web/utils.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/web/utils.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router-headers.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router-headers.js",
-              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js",
+              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/styled-jsx": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/styled-jsx",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@swc/helpers": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@swc/helpers",
@@ -763,8 +763,8 @@
               "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/styled-jsx/package.json": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/styled-jsx/package.json",
               "node_modules/.pnpm/react@18.3.1/node_modules/react/package.json": "node_modules/.pnpm/react@18.3.1/node_modules/react/package.json",
               "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/styled-jsx/dist/index/index.js": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/styled-jsx/dist/index/index.js",
-              "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/react": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/react",
               "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/client-only": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/client-only",
+              "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/react": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/react",
               "node_modules/.pnpm/react@18.3.1/node_modules/react/index.js": "node_modules/.pnpm/react@18.3.1/node_modules/react/index.js",
               "node_modules/.pnpm/react@18.3.1/node_modules/react/cjs/react.production.min.js": "node_modules/.pnpm/react@18.3.1/node_modules/react/cjs/react.production.min.js",
               "node_modules/.pnpm/client-only@0.0.1/node_modules/client-only/package.json": "node_modules/.pnpm/client-only@0.0.1/node_modules/client-only/package.json",
@@ -777,8 +777,8 @@
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/constants.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/web/utils.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/web/utils.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router-headers.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router-headers.js",
-              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js",
+              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/styled-jsx": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/styled-jsx",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@swc/helpers": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@swc/helpers",
@@ -923,8 +923,8 @@
               "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/styled-jsx/package.json": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/styled-jsx/package.json",
               "node_modules/.pnpm/react@18.3.1/node_modules/react/package.json": "node_modules/.pnpm/react@18.3.1/node_modules/react/package.json",
               "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/styled-jsx/dist/index/index.js": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/styled-jsx/dist/index/index.js",
-              "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/react": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/react",
               "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/client-only": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/client-only",
+              "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/react": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/react",
               "node_modules/.pnpm/react@18.3.1/node_modules/react/index.js": "node_modules/.pnpm/react@18.3.1/node_modules/react/index.js",
               "node_modules/.pnpm/react@18.3.1/node_modules/react/cjs/react.production.min.js": "node_modules/.pnpm/react@18.3.1/node_modules/react/cjs/react.production.min.js",
               "node_modules/.pnpm/client-only@0.0.1/node_modules/client-only/package.json": "node_modules/.pnpm/client-only@0.0.1/node_modules/client-only/package.json",
@@ -937,8 +937,8 @@
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/constants.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/web/utils.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/web/utils.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router-headers.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router-headers.js",
-              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js",
+              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/styled-jsx": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/styled-jsx",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@swc/helpers": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@swc/helpers",
@@ -1161,8 +1161,8 @@
               "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/styled-jsx/package.json": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/styled-jsx/package.json",
               "node_modules/.pnpm/react@18.3.1/node_modules/react/package.json": "node_modules/.pnpm/react@18.3.1/node_modules/react/package.json",
               "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/styled-jsx/dist/index/index.js": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/styled-jsx/dist/index/index.js",
-              "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/react": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/react",
               "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/client-only": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/client-only",
+              "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/react": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/react",
               "node_modules/.pnpm/react@18.3.1/node_modules/react/index.js": "node_modules/.pnpm/react@18.3.1/node_modules/react/index.js",
               "node_modules/.pnpm/react@18.3.1/node_modules/react/cjs/react.production.min.js": "node_modules/.pnpm/react@18.3.1/node_modules/react/cjs/react.production.min.js",
               "node_modules/.pnpm/client-only@0.0.1/node_modules/client-only/package.json": "node_modules/.pnpm/client-only@0.0.1/node_modules/client-only/package.json",
@@ -1175,8 +1175,8 @@
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/constants.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/web/utils.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/web/utils.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router-headers.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router-headers.js",
-              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js",
+              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/styled-jsx": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/styled-jsx",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@swc/helpers": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@swc/helpers",
@@ -1305,8 +1305,8 @@
               "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/styled-jsx/package.json": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/styled-jsx/package.json",
               "node_modules/.pnpm/react@18.3.1/node_modules/react/package.json": "node_modules/.pnpm/react@18.3.1/node_modules/react/package.json",
               "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/styled-jsx/dist/index/index.js": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/styled-jsx/dist/index/index.js",
-              "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/react": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/react",
               "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/client-only": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/client-only",
+              "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/react": "node_modules/.pnpm/styled-jsx@5.1.1_react@18.3.1/node_modules/react",
               "node_modules/.pnpm/react@18.3.1/node_modules/react/index.js": "node_modules/.pnpm/react@18.3.1/node_modules/react/index.js",
               "node_modules/.pnpm/react@18.3.1/node_modules/react/cjs/react.production.min.js": "node_modules/.pnpm/react@18.3.1/node_modules/react/cjs/react.production.min.js",
               "node_modules/.pnpm/client-only@0.0.1/node_modules/client-only/package.json": "node_modules/.pnpm/client-only@0.0.1/node_modules/client-only/package.json",
@@ -1319,8 +1319,8 @@
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/shared/lib/constants.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/web/utils.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/web/utils.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router-headers.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router-headers.js",
-              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/constants.js",
+              "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/server/lib/trace/tracer.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/styled-jsx": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/styled-jsx",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage.external.js": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/static-generation-async-storage.external.js",
               "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@swc/helpers": "node_modules/.pnpm/next@14.2.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@swc/helpers",
@@ -1433,6 +1433,8 @@
       "/_app.rsc.json",
       "/_document.rsc.json",
       "/_error.rsc.json",
+      "/_next/static/-_KyjozqVkvlwYWqQxUK3/_buildManifest.js",
+      "/_next/static/-_KyjozqVkvlwYWqQxUK3/_ssgManifest.js",
       "/_next/static/chunks/353-caae7f117cd70a84.js",
       "/_next/static/chunks/842-ba0608a5d6e8e9e6.js",
       "/_next/static/chunks/94c12b52-4c98d7473d1a6bc4.js",
@@ -1456,9 +1458,7 @@
       "/_next/static/media/c5fe6dc8356a8c31-s.woff2",
       "/_next/static/media/df0a9ae256c0569c-s.woff2",
       "/_next/static/media/e4af272ccee01ff0-s.p.woff2",
-      "/_next/static/not-found.txt",
-      "/_next/static/qYLbnA8PtdN3dSy2o6Y_k/_buildManifest.js",
-      "/_next/static/qYLbnA8PtdN3dSy2o6Y_k/_ssgManifest.js"
+      "/_next/static/not-found.txt"
     ],
     "identifiers": {
       "wasm": {},
@@ -1645,6 +1645,17 @@
             "/api/remove-bg.func/index.js"
           ]
         },
+        "2329": {
+          "consumers": 3,
+          "groupedPath": "75a2fdc134802a10eddc660d97397a85",
+          "newDest": "__next-on-pages-dist__/webpack/75a2fdc134802a10eddc660d97397a85.js",
+          "byteLength": 46,
+          "consumersList": [
+            "/api/auth/google.func/index.js",
+            "/api/auth/google/callback.func/index.js",
+            "/api/remove-bg.func/index.js"
+          ]
+        },
         "2481": {
           "consumers": 4,
           "groupedPath": "2b80e41aee68975af754a6ff242ba052",
@@ -1672,7 +1683,7 @@
         "2791": {
           "consumers": 1,
           "inlined": true,
-          "byteLength": 2087,
+          "byteLength": 2135,
           "consumersList": [
             "/api/auth/google/callback.func/index.js"
           ]
@@ -1752,7 +1763,7 @@
         "4529": {
           "consumers": 1,
           "inlined": true,
-          "byteLength": 1210,
+          "byteLength": 1276,
           "consumersList": [
             "/api/auth/google.func/index.js"
           ]
@@ -1812,6 +1823,17 @@
           "byteLength": 1827,
           "consumersList": [
             "/api/auth.func/index.js",
+            "/api/auth/google.func/index.js",
+            "/api/auth/google/callback.func/index.js",
+            "/api/remove-bg.func/index.js"
+          ]
+        },
+        "5596": {
+          "consumers": 3,
+          "groupedPath": "75a2fdc134802a10eddc660d97397a85",
+          "newDest": "__next-on-pages-dist__/webpack/75a2fdc134802a10eddc660d97397a85.js",
+          "byteLength": 2422,
+          "consumersList": [
             "/api/auth/google.func/index.js",
             "/api/auth/google/callback.func/index.js",
             "/api/remove-bg.func/index.js"
@@ -1984,7 +2006,7 @@
         "7416": {
           "consumers": 1,
           "inlined": true,
-          "byteLength": 1705,
+          "byteLength": 1733,
           "consumersList": [
             "/api/remove-bg.func/index.js"
           ]
