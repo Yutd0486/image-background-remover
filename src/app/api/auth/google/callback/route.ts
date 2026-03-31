@@ -21,6 +21,8 @@ export async function GET(request: NextRequest) {
   const redirectUri = `${baseUrl}/api/auth/google/callback`
 
   try {
+    console.log('Starting token exchange, redirectUri:', redirectUri, 'clientId:', clientId?.substring(0, 20))
+    
     // Exchange code for tokens
     const tokenRes = await fetch('https://oauth2.googleapis.com/token', {
       method: 'POST',
@@ -34,9 +36,19 @@ export async function GET(request: NextRequest) {
       }),
     })
 
-    const tokens = await tokenRes.json() as { access_token?: string; error?: string }
+    const tokenText = await tokenRes.text()
+    console.log('Token response status:', tokenRes.status, 'body:', tokenText.substring(0, 200))
+    
+    let tokens: { access_token?: string; error?: string; error_description?: string }
+    try {
+      tokens = JSON.parse(tokenText)
+    } catch {
+      console.error('Failed to parse token response:', tokenText)
+      return NextResponse.redirect(`${baseUrl}/login?error=token_exchange_failed`)
+    }
 
     if (!tokenRes.ok || tokens.error) {
+      console.error('Token exchange error:', tokens.error, tokens.error_description)
       return NextResponse.redirect(`${baseUrl}/login?error=token_exchange_failed`)
     }
 
