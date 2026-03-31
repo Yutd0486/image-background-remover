@@ -5,10 +5,23 @@ export const runtime = 'edge'
 
 export async function GET(request: NextRequest) {
   const ctx = getRequestContext()
+  
+  // Debug: 打印环境变量状态
+  const envClientId = ctx.env.GOOGLE_CLIENT_ID
+  const envClientSecret = ctx.env.GOOGLE_CLIENT_SECRET
+  const envBaseUrl = ctx.env.NEXT_PUBLIC_BASE_URL || ctx.env.NEXT_PUBLIC_SITE_URL
+  
+  console.log('=== OAuth Debug Info ===')
+  console.log('env.GOOGLE_CLIENT_ID:', envClientId ? 'SET' : 'EMPTY/UNDEFINED')
+  console.log('env.GOOGLE_CLIENT_SECRET:', envClientSecret ? 'SET' : 'EMPTY/UNDEFINED')
+  console.log('env.NEXT_PUBLIC_BASE_URL:', envBaseUrl || 'EMPTY')
+  console.log('env.NEXT_PUBLIC_SITE_URL:', ctx.env.NEXT_PUBLIC_SITE_URL || 'EMPTY')
+  console.log('request.headers host:', request.headers.get('host'))
+  
   // 优先使用环境变量，回退到硬编码值
-  const clientId = ctx.env.GOOGLE_CLIENT_ID || '436880484911-qd7druu4capj77buc5r4ha53lo5g39oe.apps.googleusercontent.com'
-  const clientSecret = ctx.env.GOOGLE_CLIENT_SECRET || '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'
-  const baseUrl = ctx.env.NEXT_PUBLIC_BASE_URL || ctx.env.NEXT_PUBLIC_SITE_URL || `https://${request.headers.get('host')}` || 'https://image-background-remover.online'
+  const clientId = envClientId || '436880484911-qd7druu4capj77buc5r4ha53lo5g39oe.apps.googleusercontent.com'
+  const clientSecret = envClientSecret || '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'
+  const baseUrl = envBaseUrl || `https://${request.headers.get('host')}` || 'https://image-background-remover.online'
 
   const { searchParams } = new URL(request.url)
   const code = searchParams.get('code')
