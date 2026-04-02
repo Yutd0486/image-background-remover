@@ -1,0 +1,70 @@
+// Database schema for pricing system
+// This is a Prisma schema example
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String?
+  picture       String?
+  loginMethod   String    // 'google'
+  
+  // Credits and subscription
+  credits       Int       @default(3)  // Free credits on signup
+  subscription  Subscription?
+  transactions  Transaction[]
+  
+  // Usage tracking
+  monthlyUsage  Int       @default(0)
+  lastResetDate DateTime  @default(now())
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Subscription {
+  id            String    @id @default(cuid())
+  userId        String    @unique
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  plan          String    // 'pro' | 'pro_plus'
+  monthlyLimit  Int       // 100 for pro, 300 for pro_plus
+  monthlyUsage  Int       @default(0)
+  
+  status        String    @default("active")  // 'active' | 'cancelled' | 'expired'
+  
+  startDate     DateTime  @default(now())
+  renewalDate   DateTime
+  cancelledAt   DateTime?
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Transaction {
+  id            String    @id @default(cuid())
+  userId        String
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  type          String    // 'credit_purchase' | 'subscription' | 'refund'
+  amount        Float     // Amount in CNY
+  credits       Int?      // Credits added (for credit_purchase)
+  
+  paymentMethod String?   // 'alipay' | 'wechat'
+  paymentId     String?   // External payment ID
+  status        String    @default("pending")  // 'pending' | 'completed' | 'failed' | 'refunded'
+  
+  description   String?
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model CreditPackage {
+  id            String    @id @default(cuid())
+  credits       Int       // 10, 50, 100, 500
+  price         Float     // Price in CNY
+  discount      Int       // Discount percentage (0-100)
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
