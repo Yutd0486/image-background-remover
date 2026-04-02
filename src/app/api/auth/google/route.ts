@@ -1,14 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getOptionalRequestContext } from '@cloudflare/next-on-pages'
 
 export const runtime = 'edge'
 
 export async function GET(request: NextRequest) {
-  const ctx = getOptionalRequestContext()
-  const cfEnv = ctx?.env as Record<string, string | undefined> | undefined
-
-  const clientId = cfEnv?.['GOOGLE_CLIENT_ID'] || '436880484911-qd7druu4capj77buc5r4ha53lo5g39oe.apps.googleusercontent.com'
-  const baseUrl = cfEnv?.['NEXT_PUBLIC_BASE_URL'] || cfEnv?.['NEXT_PUBLIC_SITE_URL'] || `https://${request.headers.get('host')}` || 'https://image-background-remover.online'
+  const host = request.headers.get('host') || 'image-background-remover.online'
+  const baseUrl = `https://${host}`
+  const clientId = '436880484911-qd7druu4capj77buc5r4ha53lo5g39oe.apps.googleusercontent.com'
   const redirectUri = `${baseUrl}/api/auth/google/callback`
 
   const params = new URLSearchParams({
