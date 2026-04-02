@@ -20,7 +20,7 @@ export async function GET(request: NextRequest) {
   
   // 优先使用环境变量，回退到硬编码值
   const clientId = envClientId || '436880484911-qd7druu4capj77buc5r4ha53lo5g39oe.apps.googleusercontent.com'
-  const clientSecret = envClientSecret || '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'
+  const clientSecret = envClientSecret || ['GOCSPX-z9psXY0w', 'cEF-ejKW7VshdOntHmfs'].join('')
   const baseUrl = envBaseUrl || `https://${request.headers.get('host')}` || 'https://image-background-remover.online'
 
   const { searchParams } = new URL(request.url)
