@@ -8,6 +8,7 @@ function LoginContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const error = searchParams.get('error')
+  const desc = searchParams.get('desc')
 
   useEffect(() => {
     // Check if already logged in
@@ -44,6 +45,7 @@ function LoginContent() {
           {error && (
             <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
               <p className="text-red-600 text-sm">{errorMessages[error] || 'An error occurred. Please try again.'}</p>
+              {desc && <p className="text-red-400 text-xs mt-1">{decodeURIComponent(desc)}</p>}
             </div>
           )}
 
