@@ -2,6 +2,15 @@ import { NextRequest, NextResponse } from 'next/server'
 
 export const runtime = 'edge'
 
+function safeBase64Decode(str: string): string {
+  const binary = atob(str)
+  const bytes = new Uint8Array(binary.length)
+  for (let i = 0; i < binary.length; i++) {
+    bytes[i] = binary.charCodeAt(i)
+  }
+  return new TextDecoder().decode(bytes)
+}
+
 export async function GET(request: NextRequest) {
   const cookie = request.cookies.get('auth')
   if (!cookie) {
@@ -9,7 +18,7 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    const decoded = atob(cookie.value)
+    const decoded = safeBase64Decode(cookie.value)
     const data = JSON.parse(decoded)
     if (data.type === 'google' && data.email) {
       return NextResponse.json({
